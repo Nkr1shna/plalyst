@@ -12,4 +12,5 @@ urlpatterns = [
     url(r'^register/success/$', register_success),
     url(r'^home/$', home),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^ytp/$', include('youtubeplayer.urls')),
 ]

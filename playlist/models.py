@@ -1,4 +1,5 @@
 from django.db import models
+from song.models import Song
 
 
 # Create your models here.
@@ -21,7 +22,7 @@ def add_to_plalyst(pid,sid):
 def modify_plalyst(pid,sid,op):
     return 0
 
+#takes the songs name and plays it on youtube
+def play_via_youtube(sid):
+    song= Song.objects.filter(id = sid)
 
-def play_via_youtube():
-    return 0
-    #dummy method
