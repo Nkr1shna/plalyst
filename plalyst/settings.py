@@ -40,9 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'login',
     'playlist.apps.PlaylistConfig',
-    'song.apps.SongConfig'
+    'song.apps.SongConfig',
+    'login'
 ]
 
 MIDDLEWARE = [
@@ -61,7 +61,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'templates'),
-                 'C:/Users/gouth/PycharmProjects/plalyst/templates']
+                 'C:/Users/Krishna/PycharmProjects/plalyst/templates']
         ,
         'APP_DIRS': True,
         'OPTIONS': {

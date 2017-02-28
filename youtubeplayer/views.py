@@ -12,4 +12,4 @@ def index(request):
     search_results = re.findall(r'href=\"\/watch\?v=(.{11})', html_content.read().decode())
     link = "http://www.youtube.com/embed/" + search_results[0];
     context = {'yt_link':link}
-    return render(request, 'play/index.html', context)
+    return render(request, 'index.html', context)
