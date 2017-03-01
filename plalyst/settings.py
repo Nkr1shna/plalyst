@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 import django.contrib.auth
-django.contrib.auth.LOGIN_URL = '/'
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -42,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'playlist.apps.PlaylistConfig',
     'song.apps.SongConfig',
-    'login'
 ]
 
 MIDDLEWARE = [
