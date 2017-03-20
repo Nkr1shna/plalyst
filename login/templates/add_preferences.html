@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Add a preferences{% endblock %}
+{% block title %}Add a Preferences{% endblock %}
 {% block albums_active %}active{% endblock %}
 
 {% block body %}
@@ -7,16 +7,26 @@
 
     <div class="row">
 
-        <!-- Left Album Info -->
+        <!-- Left Playlist Info -->
         <div class="col-sm-4 col-md-3">
             <div class="panel panel-default">
                 <div class="panel-body">
+                        <a href="{% url 'login:detail' playlist.id %}"></a>
+                    <h1>{{ playlist.Plalyst_title }}</h1>
 
-                    <h1>{{ playlist.plalyst_title }}</h1>
 
                 </div>
-                <div class ="panel-body">
-                    <h1> Add Preferences</h1>
+            </div>
+        </div>
+
+        <!-- Right Song Info -->
+        <div class="col-sm-8 col-md-9">
+
+
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3>Add Preferences</h3>
                     {% if error_message %}
                         <p><strong>{{ error_message }}</strong></p>
                     {% endif %}
@@ -32,6 +42,7 @@
                     </form>
                 </div>
             </div>
+
         </div>
 
     </div>
