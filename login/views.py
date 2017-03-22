@@ -107,6 +107,7 @@ def create_song(request, playlist_id):
                 return render(request, 'create_song.html', context)
         song = form.save(commit=False)
         song.playlist = playlist
+
         song.save()
         return render(request, 'detail.html', {'playlist': playlist})
     context = {
