@@ -1,6 +1,6 @@
 from django.shortcuts import render
-import urllib.request
-import urllib.parse
+import requests
+import parser
 import re
 
 # Create your views here.
