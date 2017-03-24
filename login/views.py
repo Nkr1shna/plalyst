@@ -107,8 +107,15 @@ def create_song(request, playlist_id):
                 return render(request, 'create_song.html', context)
         song = form.save(commit=False)
         song.playlist = playlist
-
         song.save()
+        songs_count = playlists_songs.count()
+        if (songs_count < 7):
+            context = {
+                'playlist': playlist,
+                'form': form,
+                'error_message': 'Add minimum of 8 songs',
+            }
+            return render(request, 'create_song.html', context)
         return render(request, 'detail.html', {'playlist': playlist})
     context = {
         'playlist': playlist,
