@@ -16,10 +16,10 @@ def generate_song(request):
     else:
         playlists = Playlist.objects.filter(user=request.user)
         songs = Song.objects.filter(playlist=playlists.first())
-        cur.execute("""Select distinct a.name from track t join artist_credit ac on t.artist_credit = ac.id join artist_credit_name acn
+        cur.execute("""Select a.name from track t join artist_credit ac on t.artist_credit = ac.id join artist_credit_name acn
                 on ac.id = acn.artist_credit
                 join artist a
                 on acn.artist = a.id
-                where t.name= %s """,(songs[0].song_title.title(),))
-    rows = cur.fetchall()
-    return render(request, 'generated.html', {'artists': rows})
+                where t.name= %s group by a.name order by count(a.name) desc limit 1""",(songs[1].song_title.title(),))
+        rows = cur.fetchall()
+        return render(request, 'generated.html', {'artists': rows})
