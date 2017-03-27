@@ -1,0 +1,15 @@
+{% block body %}
+<div class="albums-container container-fluid">
+
+    <!-- Profiles -->
+    <div class="row">
+        {% if artists %}
+            Artists:
+            {% for artist in artists %}
+            {{ artist }}
+            {% endfor %}
+        {% endif %}
+    <div>
+
+</div>
+{% endblock %}

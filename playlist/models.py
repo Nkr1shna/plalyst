@@ -1,5 +1,6 @@
 from django.db import models
 from song.models import Song
+import psycopg2
 
 
 # Create your models here.
@@ -9,8 +10,7 @@ class PlaSongs(models.Model):
     # song_id = models.ForeignKey('''After creating song model''')
     plalyst_id=0;
 
-# def generate_song():
-#     return 0
+
 #     #dummy method
 #
 # def add_to_plalyst(pid,sid):
