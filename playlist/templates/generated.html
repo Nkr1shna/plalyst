@@ -4,9 +4,12 @@
     <!-- Profiles -->
     <div class="row">
         {% if artists %}
-            Artists:
+            Artists:<BR>
             {% for artist in artists %}
-            {{ artist }}
+                {% for artis in artist %}
+                    <BR>
+                    {{ artis }}
+            {% endfor %}
             {% endfor %}
         {% endif %}
     <div>

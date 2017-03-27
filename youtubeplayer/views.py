@@ -2,6 +2,7 @@ from django.shortcuts import render
 import requests
 import parser
 import re
+import urllib.parse
 
 # Create your views here.
 
