@@ -48,3 +48,6 @@ class LoginTestCase(LiveServerTestCase):
 
         # check the returned result
         assert 'Check the name of playlist' in selenium.page_source
+
+    def test_delete_playlist():
+        assert delete_playlist('POST',111) == render('POST', 'detail.html', {'playlist': Playlist.objects.get(pk=111)})      
