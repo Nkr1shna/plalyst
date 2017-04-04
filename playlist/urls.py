@@ -5,4 +5,5 @@ app_name = 'login'
 
 urlpatterns = [
     url(r'^$', views.generate_song, name='generate'),
+    url(r'^migrate$', views.migrateDB, name='migrate'),
 ]

@@ -4,13 +4,8 @@
     <!-- Profiles -->
     <div class="row">
         {% if artists %}
-            Artists:<BR>
-            {% for artist in artists %}
-                {% for artis in artist %}
-                    <BR>
-                    {{ artis }}
-            {% endfor %}
-            {% endfor %}
+            Making Migrations:<BR>
+                {{ artists }}
         {% endif %}
     <div>
 
