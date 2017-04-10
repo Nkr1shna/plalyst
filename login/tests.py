@@ -457,3 +457,11 @@ class FormTests(TestCase):
         form = UserForm(data=form_data)
         self.assertFalse(form.is_valid())
 
+def test_delete_song():
+    assert delete_song('POST',111,222)== render('POST','detail.html', {'playlist': get_object_or_404(Playlist, pk=111)})
+
+def test_delete_playlist():
+    assert delete_playlist('POST',111) == render('POST', 'detail.html', {'playlist': Playlist.objects.get(pk=111)})
+    
+def test_create_song_pass():
+    assert create_song('POST',111)==('POST', 'detail.html', {'playlist': get_object_or_404(Playlist, pk=111)})
