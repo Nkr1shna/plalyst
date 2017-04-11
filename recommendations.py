@@ -1,12 +1,8 @@
-#Collect the tags from the songs from the user
-#get all the songs with the tags
-#Compute the cosine similarity with input songs
-#compute the average of the similarity
-#sort the similarities
-#pick the highest 30
 import MySQLdb
-from scipy import spatial
 import numpy as np
+import math
+import time
+start_time = time.time()
 
 conn1 = MySQLdb.connect(host = "localhost", user = "root", passwd = "40OZlike", db = "plalyst")
 cur= conn1.cursor()
@@ -32,7 +28,7 @@ class RecommendedSong():
         tags = cur.fetchall()
         for tag in tags:
             self.tags.append(tag[0])
-        cosineTag =[]
+        self.cosineTag =[]
         j = 0;
         for inpSong in songList:
             tagList = list(self.tags)
@@ -40,38 +36,51 @@ class RecommendedSong():
             tagList = list(set(tagList))
             inpMatrix = []
             retMatrix = []
-            for i in range(0,len(tagList)-1):
-                print("The tag id is :")
-                print(tagList[i])
+            for i in range(0,len(tagList)):
                 inpMatrix.append(inpSong.tags.count(tagList[i]))
                 retMatrix.append(self.tags.count(tagList[i]))
-            result = 1 - spatial.distance.cosine(inpMatrix, retMatrix)
-            cosineTag.append(result)
+            result = cosine_similarity(inpMatrix, retMatrix)
+            self.cosineTag.append(result)
             j+=1
-        self.avgCos = np.mean(cosineTag)
+        self.avgCos = np.mean(self.cosineTag)
 
+
+def cosine_similarity(v1,v2):
+    "compute cosine similarity of v1 to v2: (v1 dot v2)/{||v1||*||v2||)"
+    sumxx, sumxy, sumyy = 0, 0, 0
+    for i in range(len(v1)):
+        x = v1[i]; y = v2[i]
+        sumxx += x*x
+        sumyy += y*y
+        sumxy += x*y
+    return sumxy/math.sqrt(sumxx*sumyy)
 
 
 cur.execute('select name from Song order by id desc limit 8')
 songs = cur.fetchall()
 songList = []
+
+print("input taken")
+inputByUser = []
 for songName in songs:
+    inputByUser.append('"'+songName[0]+'"')
     s = Song(songName[0])
     songList.append(s)
 
+
+
 tagList = []
 for song in songList:
-    print(song.tags)
     for tag in song.tags:
         tagList.append(str(tag))
 
 tagList=list(set(tagList))
 tagList = ",".join(tagList)
-sql = 'select Song.name, Song.id from Song join SongTag on SongTag.song = Song.id where SongTag.tag in ('+tagList+')'
-print(sql)
+inputByUser=list(set(inputByUser))
+inputByUser = ",".join(inputByUser)
+sql = 'select distinct Song.name, Song.id from Song join SongTag on SongTag.song = Song.id where SongTag.tag in ('+tagList+') and Song.name not in ('+inputByUser+')'
 cur.execute(sql)
 recSongs = cur.fetchall()
-print(len(recSongs))
 recSongList = []
 for recSongName in recSongs:
     r = RecommendedSong(recSongName[0],recSongName[1],songList)
@@ -79,7 +88,10 @@ for recSongName in recSongs:
 recSongList.sort(key=lambda x: x.avgCos, reverse=True)
 
 recommended30 = recSongList[:30]
+print("The 30 recommended songs for you are:")
 for recS in recommended30:
     print(recS.name)
+    #print(recS.cosineTag)
 cur.close()
 conn1.close()
+print("--- %s seconds ---" % (time.time() - start_time))
