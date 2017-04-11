@@ -82,9 +82,9 @@ WSGI_APPLICATION = 'plalyst.wsgi.application'
 DATABASES = {
     'default': {
         'NAME': 'plalyst',
-        'ENGINE': 'django.db.backends.postgresql',
-        'USER': 'musicbrainz',
-        'PASSWORD': 'musicbrainz',
+        'ENGINE': 'django.db.backends.mysql',
+        'USER': 'root',
+        'PASSWORD': '40OZlike',
         'HOST': 'localhost',
     },
 }
