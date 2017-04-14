@@ -7,6 +7,9 @@ from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
+from login.views import delete_song, delete_playlist, create_song
+from django.shortcuts import render, get_object_or_404
+from .models import Playlist
 
 
 class Register(unittest.TestCase):
