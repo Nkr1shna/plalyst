@@ -7,7 +7,7 @@ from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
-from login.views import delete_song, delete_playlist, create_song
+from login.views import delete_song, delete_playlist, create_song, logout_user, add_preferences
 from django.shortcuts import render, get_object_or_404
 from .models import Playlist
 
@@ -468,3 +468,9 @@ def test_delete_playlist():
     
 def test_create_song_pass():
     assert create_song('POST',111)==('POST', 'detail.html', {'playlist': get_object_or_404(Playlist, pk=111)})
+    
+def test_logout_user():
+    assert logout_user(x) == render(x, 'login.html', context)
+
+def test_add_preference():
+    assert add_preferences(x,111) == render(x, 'add_preferences.html', context)
