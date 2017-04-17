@@ -75,6 +75,8 @@ def generate_playlist(request):
         tagList = ",".join(tagList)
         inputByUser=list(set(inputByUser))
         inputByUser = ",".join(inputByUser)
+        cur.execute('select * from login')
+
         sql = 'select distinct Song.name, Song.id from Song join SongTag on SongTag.song = Song.id where SongTag.tag in ('+tagList+') and Song.name not in ('+inputByUser+')'
         cur.execute(sql)
         recSongs = cur.fetchall()

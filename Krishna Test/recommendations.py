@@ -5,7 +5,6 @@ import math
 def recommendation(inputsongs):
     conn1 = MySQLdb.connect(host = "localhost", user = "root", passwd = "40OZlike", db = "plalyst")
     cur= conn1.cursor()
-    print("connections and cursors made...")
 
     class Song():
         def __init__(self, name):
@@ -55,10 +54,12 @@ def recommendation(inputsongs):
         return sumxy/math.sqrt(sumxx*sumyy)
 
 
-    print(songs)
+    songs = inputsongs
+
     print("input taken")
+    songList = []
     inputByUser = []
-    for songName in inputsongs:
+    for songName in songs:
         inputByUser.append('"'+songName+'"')
         s = Song(songName)
         songList.append(s)
@@ -85,9 +86,6 @@ def recommendation(inputsongs):
 
     recommended30 = recSongList[:30]
     cur.close()
-    print("The 30 recommended songs for you are:")
-    for recS in recommended30:
-        print(recS.name)
         #print(recS.cosineTag)
     conn1.close()
     return recommended30
