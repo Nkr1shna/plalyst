@@ -1,8 +1,6 @@
 import MySQLdb
 import numpy as np
 import math
-import time
-start_time = time.time()
 
 conn1 = MySQLdb.connect(host = "localhost", user = "root", passwd = "40OZlike", db = "plalyst")
 cur= conn1.cursor()
@@ -88,10 +86,10 @@ for recSongName in recSongs:
 recSongList.sort(key=lambda x: x.avgCos, reverse=True)
 
 recommended30 = recSongList[:30]
+cur.close()
 print("The 30 recommended songs for you are:")
 for recS in recommended30:
     print(recS.name)
     #print(recS.cosineTag)
-cur.close()
 conn1.close()
-print("--- %s seconds ---" % (time.time() - start_time))
+

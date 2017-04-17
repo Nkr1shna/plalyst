@@ -1,82 +1,89 @@
 from django.shortcuts import render
-import psycopg2
 from login.models import Playlist
 from song.models import *
 from django.db.models import Q
 from django.db import models
-import random
-import sys
-import sqlite3
+import MySQLdb
+import numpy as np
+import math
 
-try:
-    conn = psycopg2.connect("dbname='musicbrainz' user='musicbrainz' host='localhost' password='musicbrainz'")
-except:
-    print ("I am unable to connect to the database");
+def cosine_similarity(v1,v2):
+    "compute cosine similarity of v1 to v2: (v1 dot v2)/{||v1||*||v2||)"
+    sumxx, sumxy, sumyy = 0, 0, 0
+    for i in range(len(v1)):
+        x = v1[i]; y = v2[i]
+        sumxx += x*x
+        sumyy += y*y
+        sumxy += x*y
+    return sumxy/math.sqrt(sumxx*sumyy)
 
-def generate_song(request):
-    cur = conn.cursor()
+def generate_playlist(request):
     if not request.user.is_authenticated():
         return render(request, 'login.html')
     else:
-        playlists = Playlist.objects.filter(user=request.user)
-        songs = Song.objects.filter(playlist=playlists.first())
-        cur.execute("""Select a.name from track t join artist_credit ac on t.artist_credit = ac.id join artist_credit_name acn
-                on ac.id = acn.artist_credit
-                join artist a
-                on acn.artist = a.id
-                where t.name= %s group by a.name order by count(a.name) desc limit 1""",(songs[1].song_title.title(),))
-        rows = cur.fetchall()
-        return render(request, 'generated.html', {'artists': rows})
+        conn1 = MySQLdb.connect(host = "localhost", user = "root", passwd = "40OZlike", db = "plalyst")
+        cur= conn1.cursor()
+        class Song():
+            def __init__(self, name):
+                self.name = name
+                cur.execute('select id from Song where name ="'+name+'"')
+                self.id = cur.fetchall()[0][0]
+                self.tags = []
+                cur.execute('select tag from SongTag where song ="'+str(self.id)+'"')
+                tags = cur.fetchall()
+                for tag in tags:
+                    self.tags.append(tag[0])
 
+        class RecommendedSong():
+            def __init__(self, name, id, songList):
+                self.name = name
+                self.id = id
+                self.tags = []
+                cur.execute('select tag from SongTag where song ="'+str(self.id)+'"')
+                tags = cur.fetchall()
+                for tag in tags:
+                    self.tags.append(tag[0])
+                self.cosineTag =[]
+                j = 0;
+                for inpSong in songList:
+                    tagList = list(self.tags)
+                    tagList.extend(inpSong.tags)
+                    tagList = list(set(tagList))
+                    inpMatrix = []
+                    retMatrix = []
+                    for i in range(0,len(tagList)):
+                        inpMatrix.append(inpSong.tags.count(tagList[i]))
+                        retMatrix.append(self.tags.count(tagList[i]))
+                    result = cosine_similarity(inpMatrix, retMatrix)
+                    self.cosineTag.append(result)
+                    j+=1
+                self.avgCos = np.mean(self.cosineTag)
 
-def migrateDB(request):
-    success=0
-    try:
-        conn = psycopg2.connect("dbname='musicbrainz' user='musicbrainz' host='localhost' password='musicbrainz'")
-        conn1 = sqlite3.connect('db.sqlite3')
-        conn2 = sqlite3.connect('db.sqlite3')
-        cur = conn.cursor()
-        cur1 = conn1.cursor()
-        cur2 = conn2.cursor()
-        rnumbers = random.sample(range(1, 22660511), 100000)
-        for eachnum in rnumbers:
-
-            cur.execute("""select name from track where id =%d""", (eachnum,))
-            rows = cur.fetchall()
-            songName = rows[0][0]
-            cur1.execute("INSERT INTO Song VALUES (?)",songName)
-            cur.execute("""select distinct t.name from track tr
-                join recording r
-                on tr.recording = r.id
-                join recording_tag rt
-                on rt.recording = r.id
-                join tag t
-                on
-                rt.tag= t.id
-                where tr.name = %s
-                order by t.name""", (rows[0][0],))
-            rows = cur.fetchall()
-            for row in rows:
-                cur2.execute("select * from Tag where name=?",row[0]) #exexute and see!!!!
-                row2 = cur2.fetchall()
-                if (row2.count()==0):
-                    cur1.execute("INSERT INTO Tag VALUES (?)", row[0])
-                cur2.execute("select id from Song where name =?",songName)
-                songId = cur2.fetchall()[0][0]
-                cur2.execute("select id from Tag where name =?", row[0])
-                tagId = cur2.fetchall()[0][0]
-                cur2.execute("Insert into SongTag VALUES (?,?)",songId,tagId)
+        cur.execute('select name from Song order by id desc limit 8')
+        songs = cur.fetchall()
+        songList = []
+        inputByUser = []
+        for songName in songs:
+            inputByUser.append('"'+songName[0]+'"')
+            s = Song(songName[0])
+            songList.append(s)
+        tagList = []
+        for song in songList:
+            for tag in song.tags:
+                tagList.append(str(tag))
+        tagList=list(set(tagList))
+        tagList = ",".join(tagList)
+        inputByUser=list(set(inputByUser))
+        inputByUser = ",".join(inputByUser)
+        sql = 'select distinct Song.name, Song.id from Song join SongTag on SongTag.song = Song.id where SongTag.tag in ('+tagList+') and Song.name not in ('+inputByUser+')'
+        cur.execute(sql)
+        recSongs = cur.fetchall()
+        recSongList = []
+        for recSongName in recSongs:
+            r = RecommendedSong(recSongName[0],recSongName[1],songList)
+            recSongList.append(r)
+        recSongList.sort(key=lambda x: x.avgCos, reverse=True)
         cur.close()
-        cur1.close()
-        cur2.close()
-        conn.close()
         conn1.close()
-        conn2.close()
-        success = "done"
-
-
-    except:
-        e = sys.exc_info()[0]
-        success= e;
-
-    return render(request, 'generated.html', {'artists': success})
+        recommended30 = recSongList[:30]
+        return render(request, 'generated.html', {'recommended30': recommended30})

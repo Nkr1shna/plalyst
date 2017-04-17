@@ -4,6 +4,5 @@ from . import views
 app_name = 'login'
 
 urlpatterns = [
-    url(r'^$', views.generate_song, name='generate'),
-    url(r'^migrate$', views.migrateDB, name='migrate'),
+    url(r'^$', views.generate_playlist, name='generate'),
 ]

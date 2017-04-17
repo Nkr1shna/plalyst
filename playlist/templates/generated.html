@@ -1,11 +1,16 @@
+{% extends 'base.html' %}
 {% block body %}
 <div class="albums-container container-fluid">
 
     <!-- Profiles -->
     <div class="row">
-        {% if artists %}
-            Making Migrations:<BR>
-                {{ artists }}
+        {% if recommended30 %}
+            The songs recommended for you:<BR>
+                {% for song in recommended30 %}
+                    <br>
+                    {{ song.name }}
+                {% endfor %}
+
         {% endif %}
     <div>
 

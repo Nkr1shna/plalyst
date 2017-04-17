@@ -1,6 +1,5 @@
 from django.db import models
 from song.models import Song
-import psycopg2
 
 
 # Create your models here.

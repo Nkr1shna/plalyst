@@ -8,7 +8,7 @@ urlpatterns = [
     url(r'^login/', include('login.urls')),
     url(r'^', include('login.urls')),
     url(r'^youtube/', include('youtubeplayer.urls')),
-    url(r'^generate/', include('playlist.urls')),
+    url(r'^generate/', include('playlist.urls', namespace="playlist")),
 ]
 
 if settings.DEBUG:
