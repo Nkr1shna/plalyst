@@ -474,3 +474,94 @@ def test_logout_user():
 
 def test_add_preference():
     assert add_preferences(x,111) == render(x, 'add_preferences.html', context)
+    
+ class SimpleTest(unittest.TestCase):
+    def test_index(self):
+        client = Client()
+        response = client.get('http://localhost:8000/')
+        self.assertEqual(response.status_code, 200)
+
+    def test_index1(self):
+        client = Client()
+        response=client.get('http://localhost:8000/login/')
+        self.assertEqual(response.status_code, 200)
+
+    def test_index2(self):
+        client = Client()
+        response= client.post('http://localhost:8000/login/',{'username':'gouthu123','password':'gouthu123'})
+        self.assertEqual(response.status_code, 200)
+
+
+
+class Test_register(TestCase):
+            def setUp(self):
+                # Every test needs access to the request factory.
+                self.factory = RequestFactory()
+                self.user = User.objects.create_user(
+                    username='achu', email='achu@gmail.com', password='achu')
+
+            def test_register(self):
+                # Create an instance of a GET request.
+                request = self.factory.get('http://localhost:8000/register/')
+
+
+                # logged-in user by setting request.user manually.
+                request.user = self.user
+
+                # Test register() as if it were deployed at http://localhost:8000/register/
+                response = register(request)
+                self.assertEqual(response.status_code, 200)
+
+
+class InvalidLogin(unittest.TestCase):
+    def setUp(self):
+        self.driver = webdriver.Firefox()
+        self.driver.implicitly_wait(30)
+        self.base_url = "http://localhost:8000/"
+        self.verificationErrors = "invalid login"
+        self.accept_next_alert = True
+
+    def test_invalid_login(self):
+        driver = self.driver
+        driver.get(self.base_url + " ")
+        driver.find_element_by_id("id_username").clear()
+        driver.find_element_by_id("id_username").send_keys("gouthu123")
+        driver.find_element_by_id("id_password").clear()
+        driver.find_element_by_id("id_password").send_keys("gouthu")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+
+    def is_element_present(self, how, what):
+        try:
+            self.driver.find_element(by=how, value=what)
+        except NoSuchElementException as e:
+            return False
+        return True
+
+    def is_alert_present(self):
+        try:
+            self.driver.switch_to.alert()
+        except NoAlertPresentException as e:
+            return False
+        return True
+
+    def close_alert_and_get_its_text(self):
+        try:
+            alert = self.driver.switch_to.alert()
+            alert_text = alert.text
+            if self.accept_next_alert:
+                alert.accept()
+            else:
+                alert.dismiss()
+            return alert_text
+        finally:
+            self.accept_next_alert = True
+
+    def tearDown(self):
+        self.driver.quit()
+        self.assertEqual('invalid login', self.verificationErrors)
+
+
+if __name__ == "__main__":
+    unittest.main()
+
+
