@@ -1,11 +1,9 @@
 from django.shortcuts import render
-from login.models import Playlist
-from song.models import *
-from django.db.models import Q
-from django.db import models
 import MySQLdb
 import numpy as np
 import math
+import re
+import urllib.parse
 
 def cosine_similarity(v1,v2):
     "compute cosine similarity of v1 to v2: (v1 dot v2)/{||v1||*||v2||)"
@@ -16,8 +14,7 @@ def cosine_similarity(v1,v2):
         sumyy += y*y
         sumxy += x*y
     return sumxy/math.sqrt(sumxx*sumyy)
-
-def generate_playlist(request):
+def generate_playlist(request, song_name=''):
     if not request.user.is_authenticated():
         return render(request, 'login.html')
     else:
@@ -75,8 +72,6 @@ def generate_playlist(request):
         tagList = ",".join(tagList)
         inputByUser=list(set(inputByUser))
         inputByUser = ",".join(inputByUser)
-        cur.execute('select * from login')
-
         sql = 'select distinct Song.name, Song.id from Song join SongTag on SongTag.song = Song.id where SongTag.tag in ('+tagList+') and Song.name not in ('+inputByUser+')'
         cur.execute(sql)
         recSongs = cur.fetchall()
@@ -88,4 +83,15 @@ def generate_playlist(request):
         cur.close()
         conn1.close()
         recommended30 = recSongList[:30]
-        return render(request, 'generated.html', {'recommended30': recommended30})
+        if song_name=='':
+            song_name = recommended30[0]
+        link = generate_youtube(song_name)
+        return render(request, 'generated.html', {'recommended30': recommended30, 'yt_link': link})
+
+
+def generate_youtube(song_name):
+    query_string = urllib.parse.urlencode({"search_query": song_name})
+    html_content = urllib.request.urlopen("http://www.youtube.com/results?" + query_string)
+    search_results = re.findall(r'href=\"\/watch\?v=(.{11})', html_content.read().decode())
+    link = "http://www.youtube.com/embed/" + search_results[0];
+    return link

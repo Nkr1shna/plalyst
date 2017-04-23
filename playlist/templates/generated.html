@@ -1,3 +1,4 @@
+{% extends 'base.html' %}
 {% block body %}
 <div class="albums-container container-fluid">
 
@@ -5,13 +6,20 @@
     <div class="row">
         {% if recommended30 %}
             The songs recommended for you:<BR>
+            <ul>
                 {% for song in recommended30 %}
                     <br>
+                     <a href="{% url 'playlist:youtube' song.name %}">
                     {{ song.name }}
+                    </a>
                 {% endfor %}
-
+            </ul>
         {% endif %}
     <div>
+    <iframe style="position: fixed; top: 200px; right: 50px" width="560" height="315"
+        src="{{ yt_link }}"  frameborder="0"
+        allowfullscreen>
+    </iframe>
 
 </div>
 {% endblock %}
