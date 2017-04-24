@@ -1,5 +1,4 @@
 from django.db import models
-from song.models import Song
 
 
 # Create your models here.

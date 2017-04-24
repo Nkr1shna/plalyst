@@ -7,7 +7,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^login/', include('login.urls', namespace="login")),
     url(r'^', include('login.urls')),
-    url(r'^youtube/', include('youtubeplayer.urls')),
     url(r'^generate/', include('playlist.urls', namespace="playlist")),
 ]
 
