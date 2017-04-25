@@ -1,28 +1,27 @@
 from django.db import models
 
 
-# Create your models here.
+class Song(models.Model):
+    name = models.CharField(unique=True, max_length=45)
 
-class PlaSongs(models.Model):
-    # plalysts_id = models.ForeignKey('''after creating plalysts model''')
-    # song_id = models.ForeignKey('''After creating song model''')
-    plalyst_id=0;
+    class Meta:
+        managed = False
+        db_table = 'Song'
 
 
-#     #dummy method
-#
-# def add_to_plalyst(pid,sid):
-#     plasongs_obj = PlaSongs(plalyst_id=pid,song_id=sid)
-#     plasongs_obj.save()
-#     return 0
-#     #dummy method
-#
-# #takes the plalyst_id ,song_id and the operation(delete the song or plalyst)
-# def modify_plalyst(pid,sid,op):
-#     return 0
-#
-# #takes the songs name and plays it on youtube
-# def play_via_youtube(sid):
-#     song= Song.objects.filter(id = sid)
-#
+class Songtag(models.Model):
+    song = models.ForeignKey(Song, on_delete=models.CASCADE, db_column='song', blank=True, null=True)
+    tag = models.ForeignKey('Tag', on_delete=models.CASCADE, db_column='tag', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'SongTag'
+
+
+class Tag(models.Model):
+    name = models.CharField(unique=True, max_length=45, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'Tag'
 
