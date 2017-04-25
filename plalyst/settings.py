@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '+n8$^$jjq18)2*^54^sjrp7k=%t11*%jc^xi*0f=yso!ya7lqc'
-
+AUTOCOMPLETE_MEDIA_PREFIX = '/plalyst/media/autocomplete/'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
