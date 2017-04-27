@@ -10,6 +10,12 @@ import unittest, time, re
 from login.views import delete_song, delete_playlist, create_song, logout_user, add_preferences
 from django.shortcuts import render, get_object_or_404
 from .models import Playlist
+from .models import Playlist,Song
+from django.test.client import Client
+from django.contrib.auth.models import User
+from django.test import TestCase, RequestFactory
+from .views import register
+
 
 
 class Register(unittest.TestCase):
