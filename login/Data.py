@@ -10,6 +10,7 @@ class RegisterDetails():
         self.name=get_random_string(length=10)
         self.email=self.name+"@gmail.com"
         self.password=User.objects.make_random_password(length=10, allowed_chars='123456789')
+        self.invalidEmail=self.name
 
 
 class UserData():
