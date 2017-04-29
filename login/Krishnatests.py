@@ -8,7 +8,7 @@ import unittest, time, re
 from login.forms import PlaylistForm, SongForm, AddPreferencesForm, UserForm
 from django.test import TestCase, RequestFactory
 from django.test.client import Client
-from .Data import RegisterDetails, LoginData, PlaylistName, inputSong
+from .Data import RegisterDetails, LoginData, PlaylistName, inputSong, LoginDataGenerate
 
 class GeneratePlaylist(unittest.TestCase):
     def setUp(self):
@@ -19,10 +19,10 @@ class GeneratePlaylist(unittest.TestCase):
         self.accept_next_alert = True
     def test_generate_playlist(self):
         driver = self.driver
-        user = LoginData()
+        user = LoginDataGenerate()
         driver.get(self.base_url + "login/")
         driver.find_element_by_id("id_username").clear()
-        driver.find_element_by_id("id_username").send_keys(user.username)
+        driver.find_element_by_id("id_username").send_keys(user.name)
         driver.find_element_by_id("id_password").clear()
         driver.find_element_by_id("id_password").send_keys(user.password)
         driver.find_element_by_css_selector("button.btn.btn-success").click()
@@ -185,9 +185,9 @@ class Youtube(unittest.TestCase):
         driver = self.driver
         driver.get(self.base_url + "login/")
         driver.find_element_by_id("id_username").clear()
-        driver.find_element_by_id("id_username").send_keys("manmitha")
+        driver.find_element_by_id("id_username").send_keys("Krishna")
         driver.find_element_by_id("id_password").clear()
-        driver.find_element_by_id("id_password").send_keys("kc433")
+        driver.find_element_by_id("id_password").send_keys("40OZlike")
         driver.find_element_by_css_selector("button.btn.btn-success").click()
         driver.find_element_by_link_text("Generate Recommendations").click()
         driver.find_element_by_css_selector("button.btn.btn-success").click()
