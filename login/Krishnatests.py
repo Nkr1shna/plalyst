@@ -74,10 +74,10 @@ class AddPreferences(unittest.TestCase):
 
     def test_add_preferences(self):
         driver = self.driver
-        user=LoginData()
+        user = LoginDataGenerate()
         driver.get(self.base_url + "login/")
         driver.find_element_by_id("id_username").clear()
-        driver.find_element_by_id("id_username").send_keys(user.username)
+        driver.find_element_by_id("id_username").send_keys(user.name)
         driver.find_element_by_id("id_password").clear()
         driver.find_element_by_id("id_password").send_keys(user.password)
         driver.find_element_by_css_selector("button.btn.btn-success").click()
@@ -133,7 +133,14 @@ class CreateSong(unittest.TestCase):
     def test_create_song(self):
         songList=inputSong()
         driver = self.driver
-        driver.get(self.base_url + "login/19/create_song/")
+        user = LoginDataGenerate()
+        driver.get(self.base_url + "login/")
+        driver.find_element_by_id("id_username").clear()
+        driver.find_element_by_id("id_username").send_keys(user.name)
+        driver.find_element_by_id("id_password").clear()
+        driver.find_element_by_id("id_password").send_keys(user.password)
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        driver.find_element_by_link_text("View Details").click()
         driver.find_element_by_link_text("Add New Song").click()
         driver.find_element_by_id("id_song_title").clear()
         driver.find_element_by_id("id_song_title").send_keys(songList[0])
@@ -192,10 +199,7 @@ class Youtube(unittest.TestCase):
         driver.find_element_by_css_selector("button.btn.btn-success").click()
         driver.find_element_by_link_text("Generate Recommendations").click()
         driver.find_element_by_link_text("(ii) Falter").click()
-        time.sleep(10)
         driver.find_element_by_link_text('Logout').click()
-
-
 
     def is_element_present(self, how, what):
         try:
@@ -250,42 +254,6 @@ class URL(unittest.TestCase):
         response = client.get('http://localhost:8000/generate/')
         self.assertEqual(response.status_code, 200)
 
-
-class GenerateSongsTest(unittest.TestCase):
-    def setUp(self):
-        self.driver = webdriver.Firefox()
-        self.driver.implicitly_wait(30)
-        self.base_url = "http://localhost:8000/"
-        self.verificationErrors = []
-        self.accept_next_alert = True
-
-    def test_generate_songs(self):
-        conn1 = MySQLdb.connect(host="localhost", user="root", passwd="40OZlike", db="plalyst")
-        cur = conn1.cursor()
-        driver = self.driver
-        user = LoginDataGenerate()
-        driver.get(self.base_url + "login/")
-        driver.find_element_by_id("id_username").clear()
-        driver.find_element_by_id("id_username").send_keys(user.name)
-        driver.find_element_by_id("id_password").clear()
-        driver.find_element_by_id("id_password").send_keys(user.password)
-        driver.find_element_by_css_selector("button.btn.btn-success").click()
-        driver.find_element_by_xpath("(//a[contains(text(),'Generate Recommendations')])[2]").click()
-        res = driver.find_element_by_css_selector("ul > a")
-        link = res.get_attribute("href")
-        self.assertNotEqual(link, 'http://localhost:8000/generate/1/(ii)%20Falter/')
-        driver.find_element_by_link_text('Logout').click()
-        cur.execute(
-            "delete from login_song where login_song.playlist_id in ( select id from login_playlist where Plalyst_title = 'test_pl')")
-        cur.execute("commit")
-        cur.execute("SET FOREIGN_KEY_CHECKS = 0;")
-        cur.execute("delete from login_playlist where Plalyst_title = 'test_pl'")
-        cur.execute("SET FOREIGN_KEY_CHECKS = 1;")
-        cur.execute("commit")
-        cur.close()
-        conn1.close()
-if __name__ == "__main__":
-    unittest.main()
 
 
 class YoutubeLinkTestCase(unittest.TestCase):

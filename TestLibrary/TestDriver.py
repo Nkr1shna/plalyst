@@ -1,7 +1,9 @@
 import MySQLdb
 import csv
-from login.Krishnatests import GenerateSongsTest
+from login.Commontests import GenerateSongsTest,GenerateSongsTestDiff
 from .Parser import file
+
+
 conn1 = MySQLdb.connect(host = "localhost", user = "root", passwd = "40OZlike", db = "plalyst")
 cur = conn1.cursor()
 conn1.set_character_set('utf8')
@@ -19,7 +21,6 @@ with open('TestLibrary/'+file, 'rt',encoding='UTF-8') as csvfile:
         print(curry)
         cur.execute(curry)
         cur.execute("commit")
-GenerateSongsTest()
 cur.close()
 conn1.close()
 

@@ -41,6 +41,6 @@ def inputSong():
     songsList = cur.fetchall()
     inputByUser = []
     for song in songsList:
-        inputByUser.append('"' + song[0] + '"')
+        inputByUser.append(song[0])
     return inputByUser
 
