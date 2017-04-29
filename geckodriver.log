@@ -1227,3 +1227,28 @@ scheduleWalkerLoop/<@resource://gre/modules/Promise.jsm -> resource://gre/module
 1493505018720	geckodriver::marionette	INFO	Starting browser /usr/lib/firefox/firefox.sh with args ["-marionette"]
 1493505021966	Marionette	INFO	Listening on port 35587
 1493505022165	Marionette	WARN	TLS certificate errors will be ignored for this session
+1493505603569	geckodriver	INFO	Listening on 127.0.0.1:59413
+1493505604641	geckodriver::marionette	INFO	Starting browser /usr/lib/firefox/firefox.sh with args ["-marionette"]
+1493505607947	Marionette	INFO	Listening on port 33097
+1493505608093	Marionette	WARN	TLS certificate errors will be ignored for this session
+1493505614497	geckodriver	INFO	Listening on 127.0.0.1:34423
+1493505615556	geckodriver::marionette	INFO	Starting browser /usr/lib/firefox/firefox.sh with args ["-marionette"]
+1493505618853	Marionette	INFO	Listening on port 45953
+1493505618998	Marionette	WARN	TLS certificate errors will be ignored for this session
+1493505693511	geckodriver	INFO	Listening on 127.0.0.1:34209
+1493505694599	geckodriver::marionette	INFO	Starting browser /usr/lib/firefox/firefox.sh with args ["-marionette"]
+1493505698657	Marionette	INFO	Listening on port 38567
+1493505698849	Marionette	WARN	TLS certificate errors will be ignored for this session
+1493505705858	geckodriver	INFO	Listening on 127.0.0.1:45973
+1493505706916	geckodriver::marionette	INFO	Starting browser /usr/lib/firefox/firefox.sh with args ["-marionette"]
+1493505710554	Marionette	INFO	Listening on port 46247
+1493505710938	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.youtube.com/yts/jsbin/www-embed-player-vflKSKo6B/www-embed-player.js, line 278: NS_ERROR_NOT_INITIALIZED: 
+1493505830164	geckodriver	INFO	Listening on 127.0.0.1:36119
+1493505831275	geckodriver::marionette	INFO	Starting browser /usr/lib/firefox/firefox.sh with args ["-marionette"]
+1493505834994	Marionette	INFO	Listening on port 44353
+1493505835171	Marionette	WARN	TLS certificate errors will be ignored for this session
+1493505841755	geckodriver	INFO	Listening on 127.0.0.1:59851
+1493505842852	geckodriver::marionette	INFO	Starting browser /usr/lib/firefox/firefox.sh with args ["-marionette"]
+1493505846303	Marionette	INFO	Listening on port 35271
+1493505846463	Marionette	WARN	TLS certificate errors will be ignored for this session
