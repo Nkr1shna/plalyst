@@ -9,6 +9,9 @@ from login.forms import PlaylistForm, SongForm, AddPreferencesForm, UserForm
 from django.test import TestCase, RequestFactory
 from django.test.client import Client
 from .Data import RegisterDetails, LoginData, PlaylistName, inputSong, LoginDataGenerate
+import time
+from selenium.webdriver.support.ui import WebDriverWait as wait
+
 
 class GeneratePlaylist(unittest.TestCase):
     def setUp(self):
@@ -27,8 +30,8 @@ class GeneratePlaylist(unittest.TestCase):
         driver.find_element_by_id("id_password").send_keys(user.password)
         driver.find_element_by_css_selector("button.btn.btn-success").click()
         driver.find_element_by_link_text("Generate Recommendations").click()
-        driver.find_element_by_css_selector("button.btn.btn-success").click()
-        driver = self.driver
+        driver.find_element_by_link_text('Logout').click()
+
 
     def is_element_present(self, how, what):
         try:
@@ -181,17 +184,21 @@ class Youtube(unittest.TestCase):
         self.base_url = "http://localhost:8000/"
         self.verificationErrors = []
         self.accept_next_alert = True
-    def test_generate_playlist(self):
+    def test_youtube(self):
         driver = self.driver
+        user = LoginDataGenerate()
         driver.get(self.base_url + "login/")
         driver.find_element_by_id("id_username").clear()
-        driver.find_element_by_id("id_username").send_keys("Krishna")
+        driver.find_element_by_id("id_username").send_keys(user.name)
         driver.find_element_by_id("id_password").clear()
-        driver.find_element_by_id("id_password").send_keys("40OZlike")
+        driver.find_element_by_id("id_password").send_keys(user.password)
         driver.find_element_by_css_selector("button.btn.btn-success").click()
         driver.find_element_by_link_text("Generate Recommendations").click()
-        driver.find_element_by_css_selector("button.btn.btn-success").click()
-        driver = self.driver
+        driver.find_element_by_link_text("(ii) Falter").click()
+        time.sleep(10)
+        driver.find_element_by_link_text('Logout').click()
+
+
 
     def is_element_present(self, how, what):
         try:
@@ -202,14 +209,14 @@ class Youtube(unittest.TestCase):
 
     def is_alert_present(self):
         try:
-            self.driver.switch_to_alert()
+            self.driver.switch_to.alert()
         except NoAlertPresentException as e:
             return False
         return True
 
     def close_alert_and_get_its_text(self):
         try:
-            alert = self.driver.switch_to_alert()
+            alert = self.driver.switch_to.alert()
             alert_text = alert.text
             if self.accept_next_alert:
                 alert.accept()
