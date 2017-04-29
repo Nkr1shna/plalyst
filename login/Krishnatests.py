@@ -1,16 +1,12 @@
 from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
-import unittest, time, re
-from login.forms import PlaylistForm, SongForm, AddPreferencesForm, UserForm
-from django.test import TestCase, RequestFactory
+import unittest
+from login.forms import PlaylistForm, SongForm
+from django.test import TestCase
 from django.test.client import Client
-from .Data import RegisterDetails, LoginData, PlaylistName, inputSong, LoginDataGenerate
+from .Data import LoginData, PlaylistName, inputSong, LoginDataGenerate
 import time
-from selenium.webdriver.support.ui import WebDriverWait as wait
 
 
 class GeneratePlaylist(unittest.TestCase):
@@ -20,6 +16,7 @@ class GeneratePlaylist(unittest.TestCase):
         self.base_url = "http://localhost:8000/"
         self.verificationErrors = []
         self.accept_next_alert = True
+
     def test_generate_playlist(self):
         driver = self.driver
         user = LoginDataGenerate()
