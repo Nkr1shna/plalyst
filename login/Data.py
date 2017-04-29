@@ -6,9 +6,9 @@ import MySQLdb
 
 
 class RegisterDetails():
-    def __init__(self, name, email, password):
+    def __init__(self):
         self.name=get_random_string(length=10)
-        self.email=name+"@gmail.com"
+        self.email=self.name+"@gmail.com"
         self.password=User.objects.make_random_password(length=10, allowed_chars='123456789')
 
 class UserData():

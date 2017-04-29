@@ -229,12 +229,12 @@ if __name__ == "__main__":
 
 class FormTests(TestCase):
     def test_forms(self):
-        form_data = {'Plalyst_title': 'Rockmusiclist'}
+        form_data = {'Plalyst_title': PlaylistName()}
         form = PlaylistForm(data=form_data)
         self.assertTrue(form.is_valid())
 
     def test_form1(self):
-        form_data = {'song_title': 'Shape of you'}
+        form_data = {'song_title': inputSong()}
         form = SongForm(data=form_data)
         self.assertTrue(form.is_valid())
 

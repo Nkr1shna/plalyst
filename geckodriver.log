@@ -36,3 +36,32 @@
 1493446690033	Marionette	WARN	TLS certificate errors will be ignored for this session
 1493446724731	Marionette	INFO	New connections will no longer be accepted
 [Child 7590] WARNING: pipe error (18): Connection reset by peer: file /build/firefox-4Fdt0Z/firefox-53.0+build6/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 346
+1493498976344	geckodriver	INFO	Listening on 127.0.0.1:43333
+1493498978144	geckodriver::marionette	INFO	Starting browser /usr/lib/firefox/firefox.sh with args ["-marionette"]
+1493498990339	Marionette	INFO	Listening on port 35409
+1493498990664	Marionette	WARN	TLS certificate errors will be ignored for this session
+1493498993463	Marionette	INFO	New connections will no longer be accepted
+[Child 10621] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-4Fdt0Z/firefox-53.0+build6/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 346
+1493499215096	geckodriver	INFO	Listening on 127.0.0.1:44743
+1493499216164	geckodriver::marionette	INFO	Starting browser /usr/lib/firefox/firefox.sh with args ["-marionette"]
+1493499221850	Marionette	INFO	Listening on port 42565
+1493499222177	Marionette	WARN	TLS certificate errors will be ignored for this session
+1493499223445	Marionette	INFO	New connections will no longer be accepted
+[Child 11174] WARNING: pipe error (18): Connection reset by peer: file /build/firefox-4Fdt0Z/firefox-53.0+build6/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 346
+[Child 11174] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-4Fdt0Z/firefox-53.0+build6/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 346
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1493499463865	geckodriver	INFO	Listening on 127.0.0.1:45177
+1493499464938	geckodriver::marionette	INFO	Starting browser /usr/lib/firefox/firefox.sh with args ["-marionette"]
+1493499470796	Marionette	INFO	Listening on port 41583
+1493499470950	Marionette	WARN	TLS certificate errors will be ignored for this session
+1493499472752	Marionette	INFO	New connections will no longer be accepted
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x4,name=PAPZCTreeManager::Msg_UpdateZoomConstraints) Channel error: cannot send/recv
+
+1493499555931	geckodriver	INFO	Listening on 127.0.0.1:52913
+1493499557003	geckodriver::marionette	INFO	Starting browser /usr/lib/firefox/firefox.sh with args ["-marionette"]
+1493499562209	Marionette	INFO	Listening on port 39329
+1493499562635	Marionette	WARN	TLS certificate errors will be ignored for this session
+1493499565797	Marionette	INFO	New connections will no longer be accepted
