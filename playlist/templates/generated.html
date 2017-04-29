@@ -2,6 +2,7 @@
 {% block body %}
 <div class="albums-container container-fluid">
 
+
     <!-- Profiles -->
     <div class="row">
         {% if recommended30 %}
@@ -9,7 +10,7 @@
             <ul>
                 {% for song in recommended30 %}
                     <br>
-                     <a href="{% url 'playlist:youtube' song.name %}">
+                     <a href="{% url 'playlist:youtube' playlist_id song.name %}">
                     {{ song.name }}
                     </a>
                 {% endfor %}

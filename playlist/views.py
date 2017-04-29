@@ -5,6 +5,7 @@ import math
 import re
 import urllib.parse
 
+
 def cosine_similarity(v1,v2):
     "compute cosine similarity of v1 to v2: (v1 dot v2)/{||v1||*||v2||)"
     sumxx, sumxy, sumyy = 0, 0, 0
@@ -14,13 +15,15 @@ def cosine_similarity(v1,v2):
         sumyy += y*y
         sumxy += x*y
     return sumxy/math.sqrt(sumxx*sumyy)
-def generate_playlist(request, song_name=''):
+
+
+def generate_playlist(request, playlist_id='', song_name=''):
     if not request.user.is_authenticated():
         return render(request, 'login.html')
     else:
-        conn1 = MySQLdb.connect(host = "localhost", user = "root", passwd = "40OZlike", db = "plalyst")
+        conn1 = MySQLdb.connect(host="localhost", user="root", passwd="40OZlike", db="plalyst")
         cur= conn1.cursor()
-        class Song():
+        class Song:
             def __init__(self, name):
                 self.name = name
                 cur.execute('select id from Song where name ="'+name+'"')
@@ -55,8 +58,8 @@ def generate_playlist(request, song_name=''):
                     self.cosineTag.append(result)
                     j+=1
                 self.avgCos = np.mean(self.cosineTag)
-
-        cur.execute('select name from Song order by id desc limit 8')
+        sngQry = 'select song_title from login_song where playlist_id = '+playlist_id
+        cur.execute(sngQry)
         songs = cur.fetchall()
         songList = []
         inputByUser = []
@@ -83,10 +86,10 @@ def generate_playlist(request, song_name=''):
         cur.close()
         conn1.close()
         recommended30 = recSongList[:30]
-        if song_name=='':
-            song_name = recommended30[0]
+        if song_name == '':
+            song_name = recommended30[0].name
         link = generate_youtube(song_name)
-        return render(request, 'generated.html', {'recommended30': recommended30, 'yt_link': link})
+        return render(request, 'generated.html', {'recommended30': recommended30, 'yt_link': link, 'playlist_id' : playlist_id}, )
 
 
 def generate_youtube(song_name):

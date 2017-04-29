@@ -30,7 +30,7 @@
                                     <span class="glyphicon glyphicon-trash"></span>
                                 </button>
                             </form>
-                            <a href="{% url 'playlist:generate' %}" class="btn btn-primary btn-sm" role="button">Generate Recommendations</a>
+                            <a href="{% url 'playlist:generate' playlist.id%}" class="btn btn-primary btn-sm" role="button">Generate Recommendations</a>
                         </div>
                     </div>
                 </div>
