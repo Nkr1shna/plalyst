@@ -1,1 +1,1 @@
-from login.Commontests import FullFunctionalityTime,Rec30
+from login.Commontests import FullFunctionalityTime ,Rec30

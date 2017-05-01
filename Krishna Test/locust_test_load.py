@@ -11,6 +11,7 @@ def gp(l):
     l.client.get("/generate/1")
 
 
+
 class UserBehavior(TaskSet):
     tasks = {login: 2, gp:2}
 

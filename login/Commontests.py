@@ -1,7 +1,5 @@
 import csv
-from socket import socket
-
-from TestLibrary.Parser import file, filepref, filereg
+from TestLibrary.Parser import file, filepref, filereg,filepref1
 from selenium import webdriver
 import unittest
 from .Data import LoginDataGenerate
@@ -10,7 +8,8 @@ import time
 from statistics import mean,median,stdev
 import matplotlib.pyplot as plt
 from .Data import PlaylistName, RegisterDetails
-#from TestLibrary.DataLibrary import RegisterDetails
+
+
 class GenerateSongsTest(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Firefox()
@@ -141,7 +140,7 @@ class FullFunctionality(unittest.TestCase):
             songslist=[]
             for row in songs:
                 songslist.append(row)
-        with open('TestLibrary/' + filepref) as csvfile:
+        with open('TestLibrary/' + filepref1) as csvfile:
             preferences = csv.reader(csvfile, delimiter='"', quotechar='|')
             preferencelist=[]
             for row in preferences:
@@ -357,8 +356,9 @@ class FullFunctionalityTimeGraph(unittest.TestCase):
         cur = conn1.cursor()
         cur.execute("SET FOREIGN_KEY_CHECKS = 0; delete from login_song where playlist_id in " +
                     "(select id from login_playlist where Plalyst_title = 'basaFishPlaylist');" +
-                    "delete from login_playlist where Plalyst_title = 'basaFishPlaylist'; " +
-                    "delete from auth_user where username = 'basafish'; " +
+                    "delete from login_addpreferences" +
+                    "delete from login_playlist where Plalyst_title ='basaFishPlaylist');" +
+                    "delete from auth_user where username = 'basafish');" +
                     "SET FOREIGN_KEY_CHECKS = 1;  commit;")
         cur.close()
         conn1.close()
@@ -427,7 +427,7 @@ class FullFunctionalityTime(unittest.TestCase):
             songslist=[]
             for row in songs:
                 songslist.append(row)
-        with open('TestLibrary/' + filepref) as csvfile:
+        with open('TestLibrary/' + filepref1) as csvfile:
             preferences = csv.reader(csvfile, delimiter='"', quotechar='|')
             preferencelist=[]
             for row in preferences:
@@ -452,7 +452,8 @@ class FullFunctionalityTime(unittest.TestCase):
         driver.find_element_by_css_selector("button.btn.btn-success").click()
         driver.find_element_by_link_text("Add Plalyst").click()
         driver.find_element_by_id("id_Plalyst_title").clear()
-        driver.find_element_by_id("id_Plalyst_title").send_keys(PlaylistName())
+        pl_name = PlaylistName()
+        driver.find_element_by_id("id_Plalyst_title").send_keys(pl_name)
         driver.find_element_by_css_selector("button.btn.btn-success").click()
         driver.find_element_by_link_text("Add New Preferences").click()
         driver.find_element_by_id("id_preferences").clear()
@@ -504,11 +505,14 @@ class FullFunctionalityTime(unittest.TestCase):
         driver.find_element_by_link_text("Logout").click()
         conn1 = MySQLdb.connect(host="localhost", user="root", passwd="40OZlike", db="plalyst")
         cur = conn1.cursor()
-        cur.execute("SET FOREIGN_KEY_CHECKS = 0; delete from login_song where playlist_id in " +
-                    "(select id from login_playlist where Plalyst_title = 'basaFishPlaylist');" +
-                    "delete from login_playlist where Plalyst_title = 'basaFishPlaylist'; " +
-                    "delete from auth_user where username = 'basafish'; " +
-                    "SET FOREIGN_KEY_CHECKS = 1;  commit;")
+        # cur.execute('SET FOREIGN_KEY_CHECKS = 0; '
+        #             'delete from login_song where playlist_id in'
+        #             ' (select id from login_playlist where Plalyst_title = '"+pl_name+"');'
+        #             'delete from login_addpreferences;'
+        #             'delete from login_playlist where Plalyst_title ='"+pl_name+"';'
+        #             ' delete from auth_user where username = '"+name+"';'
+        #             ' SET FOREIGN_KEY_CHECKS = 1;'
+        #             'commit;')
         cur.close()
         conn1.close()
 

@@ -293,6 +293,7 @@ class PrefChangeRec(unittest.TestCase):
         self.accept_next_alert = True
 
     def test_pref_change_rec(self):
+        print("Test pref change integration test")
         driver = self.driver
         with open('TestLibrary/' + filepref) as csvfile:
             preferences = csv.reader(csvfile, delimiter='"', quotechar='|')
