@@ -75,14 +75,15 @@ class DeletePlaylist(unittest.TestCase):
         self.accept_next_alert = True
 
     def test_delete_playlist(self):
-        driver = self.driver
         user = LoginData()
-        driver.get(self.base_url + "/login/logout_user/")
+        driver = self.driver
+        driver.get(self.base_url + "login/")
         driver.find_element_by_id("id_username").clear()
         driver.find_element_by_id("id_username").send_keys(user.name)
         driver.find_element_by_id("id_password").clear()
         driver.find_element_by_id("id_password").send_keys(user.password)
         driver.find_element_by_css_selector("button.btn.btn-success").click()
+        driver.find_element_by_link_text("Add Plalyst").click()
         driver.find_element_by_id("id_Plalyst_title").clear()
         driver.find_element_by_id("id_Plalyst_title").send_keys(PlaylistName())
         driver.find_element_by_css_selector("button.btn.btn-success").click()
@@ -178,19 +179,12 @@ if __name__ == "__main__":
 
 
 class FormTests(TestCase):
-    def PlaylistForm(self):
+    def test_playlist(self):
         form_data = {'preferences': PlaylistName()}
         form = AddPreferencesForm(data=form_data)
         self.assertTrue(form.is_valid())
 
-    def LoginDataForm(self):
-        user=LoginData()
-        form_data= {'username':user.name,
-                    'password':user.password}
-        form= LoginForm(data=form_data)
-        self.assertTrue(form.is_valid())
-
-    def RegisterForm(self):
+    def test_register(self):
         user=RegisterDetails()
         form_data= {'username':user.name,
                     'email':user.email,
@@ -198,7 +192,7 @@ class FormTests(TestCase):
         form= UserForm(data=form_data)
         self.assertTrue(form.is_valid())
 
-    def InvalidRegisterForm(self):
+    def test_invalid_register(self):
         user = RegisterDetails()
         form_data = {'username':user.name,
                      'email':user.invalidEmail ,
@@ -207,7 +201,7 @@ class FormTests(TestCase):
         self.assertFalse(form.is_valid())
 
 class URLTest(unittest.TestCase):
-    def Create_Play(self):
+    def test_URL(self):
         client = Client()
         response = client.get('http://localhost:8000/login/create_playlist/')
         self.assertEqual(response.status_code, 200)
@@ -225,7 +219,6 @@ class Register(unittest.TestCase):
         driver = self.driver
         user=RegisterDetails()
         driver.get(self.base_url + "login/register/")
-        driver.find_element_by_link_text("Register").click()
         driver.find_element_by_id("id_username").clear()
         driver.find_element_by_id("id_username").send_keys(user.name)
         driver.find_element_by_id("id_email").clear()
