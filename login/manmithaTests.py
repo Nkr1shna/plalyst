@@ -2,10 +2,10 @@ from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest
-from login.forms import AddPreferencesForm
 from django.test import TestCase
 from django.test.client import Client
 from .Data import RegisterDetails, LoginData, PlaylistName, inputSong
+from login.forms import AddPreferencesForm,UserForm, LoginForm
 
 class CreatePlaylist(unittest.TestCase):
     def setUp(self):
@@ -178,24 +178,40 @@ if __name__ == "__main__":
 
 
 class FormTests(TestCase):
-    def test_form2(self):
+    def PlaylistForm(self):
         form_data = {'preferences': PlaylistName()}
         form = AddPreferencesForm(data=form_data)
         self.assertTrue(form.is_valid())
 
+    def LoginDataForm(self):
+        user=LoginData()
+        form_data= {'username':user.name,
+                    'password':user.password}
+        form= LoginForm(data=form_data)
+        self.assertTrue(form.is_valid())
+
+    def RegisterForm(self):
+        user=RegisterDetails()
+        form_data= {'username':user.name,
+                    'email':user.email,
+                    'password':user.password}
+        form= UserForm(data=form_data)
+        self.assertTrue(form.is_valid())
+
+    def InvalidRegisterForm(self):
+        user = RegisterDetails()
+        form_data = {'username':user.name,
+                     'email':user.invalidEmail ,
+                     'password': user.password}
+        form = UserForm(data=form_data)
+        self.assertFalse(form.is_valid())
+
 class URLTest(unittest.TestCase):
-    def Add_Pref(self):
-        client = Client()
-        response = client.get('http://localhost:8000/login/5/add_preferences/')
-        self.assertEqual(response.status_code, 200)
     def Create_Play(self):
         client = Client()
         response = client.get('http://localhost:8000/login/create_playlist/')
         self.assertEqual(response.status_code, 200)
-    def Create_song(self):
-        client = Client()
-        response = client.get('http://localhost:8000/login/3/create_song/')
-        self.assertEqual(response.status_code, 200)
+
 
 class Register(unittest.TestCase):
     def setUp(self):
