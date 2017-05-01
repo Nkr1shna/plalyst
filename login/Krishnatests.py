@@ -2,9 +2,9 @@ from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest
-from login.forms import PlaylistForm, SongForm
+from login.forms import PlaylistForm, SongForm, LoginForm
 from django.test.client import Client
-from .Data import PlaylistName, inputSong, LoginDataGenerate
+from .Data import PlaylistName, inputSong, LoginDataGenerate, RegisterDetails
 import re
 import urllib
 
@@ -246,13 +246,19 @@ class FormTests(unittest.TestCase):
         form = SongForm(data=form_data)
         self.assertTrue(form.is_valid())
 
-
-class FormTests1(unittest.TestCase):
     def test_forms(self):
         print("FormTests1")
         form_data = {'Plalyst_title': PlaylistName()}
         form = PlaylistForm(data=form_data)
         self.assertTrue(form.is_valid())
+
+    def test_InvalidLoginData(self):
+        user = LoginDataGenerate()
+        user1 = RegisterDetails()
+        form_data = {'username': user.name,
+                     'password': user1.password}
+        form = LoginForm(data=form_data)
+        self.assertFalse(form.is_valid())
 
 
 class URL(unittest.TestCase):
