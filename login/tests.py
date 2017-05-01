@@ -173,7 +173,7 @@ class DeleteSong(unittest.TestCase):
 if __name__ == "__main__":
     unittest.main()
 
-
+LinkTest(unittest.TestCase):
 
     def test_form3(self):
         form_data = {'username': 'gouthu',
