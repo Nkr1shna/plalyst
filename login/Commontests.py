@@ -3,7 +3,7 @@ import unittest
 from .Data import LoginDataGenerate
 import MySQLdb
 import time
-from statistics import mean,median,mode,stdev
+from statistics import mean,median,stdev
 
 
 class GenerateSongsTest(unittest.TestCase):
@@ -260,8 +260,12 @@ class FullFunctionalityTime(unittest.TestCase):
         print(median(ar))
         print("Standard deviation :")
         print(stdev(ar))
+        print("All the recorded times")
         print(ar)
-
+        print("Lowest time:")
+        print(min(ar))
+        print("Highest time:")
+        print(max(ar))
 
     def fullfunctionality_time(self):
         t = time.time()
