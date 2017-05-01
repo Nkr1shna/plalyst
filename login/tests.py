@@ -1,5 +1,5 @@
 from django.test import TestCase
-from login.forms import PlaylistForm,SongForm,AddPreferencesForm,UserForm
+from login.forms import PlaylistForm, SongForm, AddPreferencesForm, UserForm
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -10,12 +10,11 @@ import unittest, time, re
 from login.views import delete_song, delete_playlist, create_song, logout_user, add_preferences
 from django.shortcuts import render, get_object_or_404
 from .models import Playlist
-from .models import Playlist,Song
+from .models import Playlist, Song
 from django.test.client import Client
 from django.contrib.auth.models import User
 from django.test import TestCase, RequestFactory
 from .views import register
-
 
 
 class Register(unittest.TestCase):
@@ -277,7 +276,6 @@ if __name__ == "__main__":
     unittest.main()
 
 
-
 class FormTests(TestCase):
     def test_forms(self):
         form_data = {'Plalyst_title': 'Rockmusiclist'}
@@ -289,12 +287,11 @@ class FormTests(TestCase):
         form = SongForm(data=form_data)
         self.assertTrue(form.is_valid())
 
-
     def test_form3(self):
-        form_data= {'username':'gouthu',
-                    'email':'gouthu123@gmail.com',
-                    'password':'gouthu'}
-        form= UserForm(data=form_data)
+        form_data = {'username': 'gouthu',
+                     'email': 'gouthu123@gmail.com',
+                     'password': 'gouthu'}
+        form = UserForm(data=form_data)
         self.assertTrue(form.is_valid())
 
     def test_form4(self):
@@ -304,21 +301,23 @@ class FormTests(TestCase):
         form = UserForm(data=form_data)
         self.assertFalse(form.is_valid())
 
+
 """def test_delete_song():
     assert delete_song('POST',111,222)== render('POST','detail.html', {'playlist': get_object_or_404(Playlist, pk=111)})
 
 def test_delete_playlist():
     assert delete_playlist('POST',111) == render('POST', 'detail.html', {'playlist': Playlist.objects.get(pk=111)})
-    
+
 def test_create_song_pass():
     assert create_song('POST',111)==('POST', 'detail.html', {'playlist': get_object_or_404(Playlist, pk=111)})
-    
+
 def test_logout_user():
     assert logout_user(x) == render(x, 'login.html', context)
 
 def test_add_preference():
     assert add_preferences(x,111) == render(x, 'add_preferences.html', context)"""
-    
+
+
 class SimpleTest(unittest.TestCase):
     def test_index(self):
         client = Client()
@@ -327,33 +326,32 @@ class SimpleTest(unittest.TestCase):
 
     def test_index1(self):
         client = Client()
-        response=client.get('http://localhost:8000/login/')
+        response = client.get('http://localhost:8000/login/')
         self.assertEqual(response.status_code, 200)
 
     def test_index2(self):
         client = Client()
-        response= client.post('http://localhost:8000/login/',{'username':'gouthu123','password':'gouthu123'})
+        response = client.post('http://localhost:8000/login/', {'username': 'gouthu123', 'password': 'gouthu123'})
         self.assertEqual(response.status_code, 200)
 
 
 class Test_register(TestCase):
-            def setUp(self):
-                # Every test needs access to the request factory.
-                self.factory = RequestFactory()
-                self.user = User.objects.create_user(
-                    username='achu', email='achu@gmail.com', password='achu')
+    def setUp(self):
+        # Every test needs access to the request factory.
+        self.factory = RequestFactory()
+        self.user = User.objects.create_user(
+            username='achu', email='achu@gmail.com', password='achu')
 
-            def test_register(self):
-                # Create an instance of a GET request.
-                request = self.factory.get('http://localhost:8000/register/')
+    def test_register(self):
+        # Create an instance of a GET request.
+        request = self.factory.get('http://localhost:8000/register/')
 
+        # logged-in user by setting request.user manually.
+        request.user = self.user
 
-                # logged-in user by setting request.user manually.
-                request.user = self.user
-
-                # Test register() as if it were deployed at http://localhost:8000/register/
-                response = register(request)
-                self.assertEqual(response.status_code, 200)
+        # Test register() as if it were deployed at http://localhost:8000/register/
+        response = register(request)
+        self.assertEqual(response.status_code, 200)
 
 
 class InvalidLogin(unittest.TestCase):
@@ -406,7 +404,6 @@ class InvalidLogin(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
 
 
 
