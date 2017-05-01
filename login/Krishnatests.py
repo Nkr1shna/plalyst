@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest
-from login.forms import PlaylistForm, SongForm, LoginForm
+from login.forms import PlaylistForm, SongForm, UserForm
 from django.test.client import Client
 from .Data import PlaylistName, inputSong, LoginDataGenerate, RegisterDetails
 import re
@@ -252,13 +252,16 @@ class FormTests(unittest.TestCase):
         form = PlaylistForm(data=form_data)
         self.assertTrue(form.is_valid())
 
-    def test_InvalidLoginData(self):
+    def test_invalidLoginData(self):
         user = LoginDataGenerate()
         user1 = RegisterDetails()
-        form_data = {'username': user.name,
-                     'password': user1.password}
-        form = LoginForm(data=form_data)
+        form_data = {'username': 'gouthu',
+                     'email': 'gouthu123@njit.edu',
+                     'password': 'gouthu'}
+        form = UserForm(data=form_data)
         self.assertFalse(form.is_valid())
+
+
 
 
 class URL(unittest.TestCase):
@@ -278,4 +281,3 @@ class YoutubeLinkTestCase(unittest.TestCase):
         search_results = re.findall(r'href=\"\/watch\?v=(.{11})', html_content.read().decode())
         link = "http://www.youtube.com/embed/" + search_results[0]
         self.assertEqual(url, link)
-
