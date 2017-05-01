@@ -76,7 +76,19 @@ def generate_playlist(request, playlist_id='', song_name=''):
         tagList = ",".join(tagList)
         inputByUser=list(set(inputByUser))
         inputByUser = ",".join(inputByUser)
-        sql = 'select distinct Song.name, Song.id from Song join SongTag on SongTag.song = Song.id where SongTag.tag in ('+tagList+') and Song.name not in ('+inputByUser+')'
+        prefQry = 'select id from Tag where name in (select preferences from login_addpreferences where playlist_id = '+playlist_id+')'
+        cur.execute(prefQry)
+        prefren = cur.fetchall()
+        preflist = []
+        for pref in prefren:
+            preflist.append(str(pref[0]))
+        preflist=list(set(preflist))
+        if(len(preflist)==0):
+            preflist= '100090877687'
+        else:
+            preflist = ",".join(preflist)
+
+        sql = 'select distinct Song.name, Song.id from Song join SongTag on SongTag.song = Song.id where SongTag.tag in ('+tagList+') and Song.name not in ('+inputByUser+') and SongTag.tag not in ('+preflist+')'
         cur.execute(sql)
         recSongs = cur.fetchall()
         recSongList = []

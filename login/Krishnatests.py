@@ -1,12 +1,10 @@
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
-import unittest
 from login.forms import PlaylistForm, SongForm, UserForm
 from django.test.client import Client
 from .Data import PlaylistName, inputSong, LoginDataGenerate, RegisterDetails
-import re
-import urllib
+import re,time,urllib,MySQLdb,unittest
 
 
 class GeneratePlaylist(unittest.TestCase):
@@ -190,6 +188,7 @@ class Youtube(unittest.TestCase):
         self.base_url = "http://localhost:8000/"
         self.verificationErrors = []
         self.accept_next_alert = True
+
     def test_youtube(self):
         print("Youtube")
         driver = self.driver
@@ -252,12 +251,12 @@ class FormTests(unittest.TestCase):
         form = PlaylistForm(data=form_data)
         self.assertTrue(form.is_valid())
 
-    def test_invalidLoginData(self):
+    def test_invalid_user_data(self):
         user = LoginDataGenerate()
         user1 = RegisterDetails()
-        form_data = {'username': 'gouthu',
-                     'email': 'gouthu123@njit.edu',
-                     'password': 'gouthu'}
+        form_data = {'username': user.name,
+                     'email': user1.name,
+                     'password': user1.password}
         form = UserForm(data=form_data)
         self.assertFalse(form.is_valid())
 
@@ -281,3 +280,88 @@ class YoutubeLinkTestCase(unittest.TestCase):
         search_results = re.findall(r'href=\"\/watch\?v=(.{11})', html_content.read().decode())
         link = "http://www.youtube.com/embed/" + search_results[0]
         self.assertEqual(url, link)
+
+
+class PrefChangeRec(unittest.TestCase):
+    def setUp(self):
+        self.driver = webdriver.Firefox()
+        self.driver.implicitly_wait(30)
+        self.base_url = "http://localhost:8000/"
+        self.verificationErrors = []
+        self.accept_next_alert = True
+
+    def test_pref_change_rec(self):
+        driver = self.driver
+        user = LoginDataGenerate()
+        driver.get(self.base_url + "login/")
+        driver.find_element_by_id("id_username").clear()
+        driver.find_element_by_id("id_username").send_keys(user.name)
+        driver.find_element_by_id("id_password").clear()
+        driver.find_element_by_id("id_password").send_keys(user.password)
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        driver.find_element_by_link_text("Generate Recommendations").click()
+        time.sleep(10)
+        list_of_links1 = driver.find_elements_by_tag_name("a")
+        recomm1=''
+        for link1 in list_of_links1:
+            recomm1+=(link1.get_attribute('text'))
+        driver.find_element_by_link_text("profiles").click()
+        driver.find_element_by_link_text("View Details").click()
+        driver.find_element_by_link_text("Add New Preferences").click()
+        driver.find_element_by_id("id_preferences").clear()
+        driver.find_element_by_id("id_preferences").send_keys("alternative")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        driver.find_element_by_link_text("Add New Preferences").click()
+        driver.find_element_by_id("id_preferences").clear()
+        driver.find_element_by_id("id_preferences").send_keys("presley")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        driver.find_element_by_link_text("Add New Preferences").click()
+        driver.find_element_by_id("id_preferences").clear()
+        driver.find_element_by_id("id_preferences").send_keys("bulldozur")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        driver.find_element_by_link_text("Generate Recommendations").click()
+        time.sleep(10)
+        list_of_links2 = driver.find_elements_by_tag_name("a")
+        recomm2 = ''
+        for link2 in list_of_links2:
+            recomm2 += (link2.get_attribute('text'))
+        self.assertNotEqual(recomm1,recomm2)
+        driver.find_element_by_link_text('Logout').click()
+        conn1 = MySQLdb.connect(host="localhost", user="root", passwd="40OZlike", db="plalyst")
+        cur = conn1.cursor()
+        cur.execute('delete from login_addpreferences; COMMIT ;')
+        cur.close()
+        conn1.close()
+    def is_element_present(self, how, what):
+        try:
+            self.driver.find_element(by=how, value=what)
+        except NoSuchElementException as e:
+            return False
+        return True
+
+    def is_alert_present(self):
+        try:
+            self.driver.switch_to.alert()
+        except NoAlertPresentException as e:
+            return False
+        return True
+
+    def close_alert_and_get_its_text(self):
+        try:
+            alert = self.driver.switch_to.alert()
+            alert_text = alert.text
+            if self.accept_next_alert:
+                alert.accept()
+            else:
+                alert.dismiss()
+            return alert_text
+        finally:
+            self.accept_next_alert = True
+
+    def tearDown(self):
+        self.driver.quit()
+        self.assertEqual([], self.verificationErrors)
+
+
+if __name__ == "__main__":
+    unittest.main()

@@ -4,7 +4,7 @@ from .Data import LoginDataGenerate
 import MySQLdb
 import time
 from statistics import mean,median,stdev
-
+import matplotlib.pyplot as plt
 
 class GenerateSongsTest(unittest.TestCase):
     def setUp(self):
@@ -239,6 +239,137 @@ class FullFunctionality(unittest.TestCase):
 if __name__ == "__main__":
     unittest.main()
 
+
+class FullFunctionalityTimeGraph(unittest.TestCase):
+
+    def setUp(self):
+        self.driver = webdriver.Firefox()
+        self.driver.implicitly_wait(30)
+        self.base_url = "http://127.0.0.1:8000/"
+        self.verificationErrors = []
+        self.accept_next_alert = True
+
+    def test_function_calls(self):
+        ar = []
+        for i in range(0, 10):
+            t = time.time()
+            self.assertTrue(None == self.fullfunctionality_time())
+            ar.append(time.time() - t - 7)
+        plt.plot(ar)
+        plt.ylabel('Time taken in s')
+        plt.show()
+    def fullfunctionality_time(self):
+        t = time.time()
+        driver = self.driver
+        driver.get(self.base_url + "login/register/")
+        driver.find_element_by_id("id_username").clear()
+        driver.find_element_by_id("id_username").send_keys("basafish")
+        driver.find_element_by_id("id_email").clear()
+        driver.find_element_by_id("id_email").send_keys("basa@fish.com")
+        driver.find_element_by_id("id_password").clear()
+        driver.find_element_by_id("id_password").send_keys("basafish")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        driver.find_element_by_link_text("Logout").click()
+        driver.find_element_by_id("id_username").clear()
+        driver.find_element_by_id("id_username").send_keys("basafish")
+        driver.find_element_by_id("id_password").clear()
+        driver.find_element_by_id("id_password").send_keys("basafish")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        driver.find_element_by_link_text("Add Plalyst").click()
+        driver.find_element_by_id("id_Plalyst_title").clear()
+        driver.find_element_by_id("id_Plalyst_title").send_keys("basaFishPlaylist")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        driver.find_element_by_link_text("Add New Preferences").click()
+        driver.find_element_by_id("id_preferences").clear()
+        driver.find_element_by_id("id_preferences").send_keys("rock")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        driver.find_element_by_link_text("Add New Preferences").click()
+        driver.find_element_by_id("id_preferences").clear()
+        driver.find_element_by_id("id_preferences").send_keys("pop")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        driver.find_element_by_link_text("Add New Preferences").click()
+        driver.find_element_by_id("id_preferences").clear()
+        driver.find_element_by_id("id_preferences").send_keys("punk")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        driver.find_element_by_link_text("Add New Song").click()
+        driver.find_element_by_id("id_song_title").clear()
+        driver.find_element_by_id("id_song_title").send_keys("Devoid of Light")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        time.sleep(1)
+        driver.find_element_by_id("id_song_title").clear()
+        driver.find_element_by_id("id_song_title").send_keys("What a Difference a Day Makes")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        time.sleep(1)
+        driver.find_element_by_id("id_song_title").clear()
+        driver.find_element_by_id("id_song_title").send_keys("Big And Sad")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        time.sleep(1)
+        driver.find_element_by_id("id_song_title").clear()
+        driver.find_element_by_id("id_song_title").send_keys("Paper")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        time.sleep(1)
+        driver.find_element_by_id("id_song_title").clear()
+        driver.find_element_by_id("id_song_title").send_keys("Whistle")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        time.sleep(1)
+        driver.find_element_by_id("id_song_title").clear()
+        driver.find_element_by_id("id_song_title").send_keys("Ormadans")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        time.sleep(1)
+        driver.find_element_by_id("id_song_title").clear()
+        driver.find_element_by_id("id_song_title").send_keys("I Don't Know (Gotta Have You)")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        time.sleep(1)
+        driver.find_element_by_id("id_song_title").clear()
+        driver.find_element_by_id("id_song_title").send_keys("Pusta studnia")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        driver.find_element_by_link_text("Generate Recommendations").click()
+        driver.find_element_by_link_text("Evil Little Goat").click()
+        driver.find_element_by_link_text("Der zweite Teil der Ewigkeit").click()
+        driver.find_element_by_link_text("Logout").click()
+        conn1 = MySQLdb.connect(host="localhost", user="root", passwd="40OZlike", db="plalyst")
+        cur = conn1.cursor()
+        cur.execute("SET FOREIGN_KEY_CHECKS = 0; delete from login_song where playlist_id in " +
+                    "(select id from login_playlist where Plalyst_title = 'basaFishPlaylist');" +
+                    "delete from login_playlist where Plalyst_title = 'basaFishPlaylist'; " +
+                    "delete from auth_user where username = 'basafish'; " +
+                    "SET FOREIGN_KEY_CHECKS = 1;  commit;")
+        cur.close()
+        conn1.close()
+
+    def is_element_present(self, how, what):
+        try:
+            self.driver.find_element(by=how, value=what)
+        except NoSuchElementException as e:
+            return False
+        return True
+
+    def is_alert_present(self):
+        try:
+            driver.switch_to_alert()
+        except NoAlertPresentException as e:
+            return False
+        return True
+
+    def close_alert_and_get_its_text(self):
+        try:
+            alert = driver.switch_to_alert()
+            alert_text = alert.text
+            if self.accept_next_alert:
+                alert.accept()
+            else:
+                alert.dismiss()
+            return alert_text
+        finally:
+            self.accept_next_alert = True
+
+    def tearDown(self):
+        self.driver.quit()
+        self.assertEqual([], self.verificationErrors)
+
+if __name__ == "__main__":
+    unittest.main()
+
 class FullFunctionalityTime(unittest.TestCase):
 
     def setUp(self):
@@ -254,18 +385,14 @@ class FullFunctionalityTime(unittest.TestCase):
             t = time.time()
             self.assertTrue(None == self.fullfunctionality_time())
             ar.append(time.time() - t - 7)
-        print("Mean :")
-        print(mean(ar))
-        print("Median :")
-        print(median(ar))
-        print("Standard deviation :")
-        print(stdev(ar))
-        print("All the recorded times")
+        print("The timings are:")
         print(ar)
-        print("Lowest time:")
-        print(min(ar))
-        print("Highest time:")
-        print(max(ar))
+        print("Mean:")
+        print(mean(ar))
+        print("Median:")
+        print(median(ar))
+        print("STD deviation:")
+        print(stdev(ar))
 
     def fullfunctionality_time(self):
         t = time.time()
@@ -378,3 +505,110 @@ class FullFunctionalityTime(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class Rec30(unittest.TestCase):
+
+    def setUp(self):
+        self.driver = webdriver.Firefox()
+        self.driver.implicitly_wait(30)
+        self.base_url = "http://127.0.0.1:8000/"
+        self.verificationErrors = []
+        self.accept_next_alert = True
+
+
+    def test_rec_30(self):
+        driver = self.driver
+        driver.get(self.base_url + "login/register/")
+        driver.find_element_by_id("id_username").clear()
+        driver.find_element_by_id("id_username").send_keys("basafish")
+        driver.find_element_by_id("id_email").clear()
+        driver.find_element_by_id("id_email").send_keys("basa@fish.com")
+        driver.find_element_by_id("id_password").clear()
+        driver.find_element_by_id("id_password").send_keys("basafish")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        driver.find_element_by_link_text("Add Plalyst").click()
+        driver.find_element_by_id("id_Plalyst_title").clear()
+        driver.find_element_by_id("id_Plalyst_title").send_keys("basaFishPlaylist")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        driver.find_element_by_link_text("Add New Song").click()
+        driver.find_element_by_id("id_song_title").clear()
+        driver.find_element_by_id("id_song_title").send_keys("Devoid of Light")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        time.sleep(1)
+        driver.find_element_by_id("id_song_title").clear()
+        driver.find_element_by_id("id_song_title").send_keys("What a Difference a Day Makes")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        time.sleep(1)
+        driver.find_element_by_id("id_song_title").clear()
+        driver.find_element_by_id("id_song_title").send_keys("Big And Sad")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        time.sleep(1)
+        driver.find_element_by_id("id_song_title").clear()
+        driver.find_element_by_id("id_song_title").send_keys("Paper")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        time.sleep(1)
+        driver.find_element_by_id("id_song_title").clear()
+        driver.find_element_by_id("id_song_title").send_keys("Whistle")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        time.sleep(1)
+        driver.find_element_by_id("id_song_title").clear()
+        driver.find_element_by_id("id_song_title").send_keys("Ormadans")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        time.sleep(1)
+        driver.find_element_by_id("id_song_title").clear()
+        driver.find_element_by_id("id_song_title").send_keys("I Don't Know (Gotta Have You)")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        time.sleep(1)
+        driver.find_element_by_id("id_song_title").clear()
+        driver.find_element_by_id("id_song_title").send_keys("Pusta studnia")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        driver.find_element_by_link_text("Generate Recommendations").click()
+        time.sleep(10)
+        list_of_links = driver.find_elements_by_tag_name("a")
+        self.assertTrue(len(list_of_links)-4, 30)
+        driver.find_element_by_link_text("Logout").click()
+        conn1 = MySQLdb.connect(host="localhost", user="root", passwd="40OZlike", db="plalyst")
+        cur = conn1.cursor()
+        cur.execute("SET FOREIGN_KEY_CHECKS = 0; delete from login_song where playlist_id in " +
+                    "(select id from login_playlist where Plalyst_title = 'basaFishPlaylist');" +
+                    "delete from login_playlist where Plalyst_title = 'basaFishPlaylist'; " +
+                    "delete from auth_user where username = 'basafish'; " +
+                    "SET FOREIGN_KEY_CHECKS = 1;  commit;")
+        cur.close()
+        conn1.close()
+
+    def is_element_present(self, how, what):
+        try:
+            self.driver.find_element(by=how, value=what)
+        except NoSuchElementException as e:
+            return False
+        return True
+
+    def is_alert_present(self):
+        try:
+            driver.switch_to_alert()
+        except NoAlertPresentException as e:
+            return False
+        return True
+
+    def close_alert_and_get_its_text(self):
+        try:
+            alert = driver.switch_to_alert()
+            alert_text = alert.text
+            if self.accept_next_alert:
+                alert.accept()
+            else:
+                alert.dismiss()
+            return alert_text
+        finally:
+            self.accept_next_alert = True
+
+    def tearDown(self):
+        self.driver.quit()
+        self.assertEqual([], self.verificationErrors)
+
+if __name__ == "__main__":
+    unittest.main()
+
+
