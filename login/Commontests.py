@@ -5,7 +5,7 @@ import MySQLdb
 import time
 from statistics import mean,median,stdev
 import matplotlib.pyplot as plt
-
+from .Data import RegisterDetails, PlaylistName
 class GenerateSongsTest(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Firefox()
@@ -396,24 +396,27 @@ class FullFunctionalityTime(unittest.TestCase):
 
     def fullfunctionality_time(self):
         t = time.time()
+        name=RegisterDetails().name
+        email=RegisterDetails().email
+        password=RegisterDetails().password
         driver = self.driver
         driver.get(self.base_url + "login/register/")
         driver.find_element_by_id("id_username").clear()
-        driver.find_element_by_id("id_username").send_keys("basafish")
+        driver.find_element_by_id("id_username").send_keys(name)
         driver.find_element_by_id("id_email").clear()
-        driver.find_element_by_id("id_email").send_keys("basa@fish.com")
+        driver.find_element_by_id("id_email").send_keys(email)
         driver.find_element_by_id("id_password").clear()
-        driver.find_element_by_id("id_password").send_keys("basafish")
+        driver.find_element_by_id("id_password").send_keys(password)
         driver.find_element_by_css_selector("button.btn.btn-success").click()
         driver.find_element_by_link_text("Logout").click()
         driver.find_element_by_id("id_username").clear()
-        driver.find_element_by_id("id_username").send_keys("basafish")
+        driver.find_element_by_id("id_username").send_keys(name)
         driver.find_element_by_id("id_password").clear()
-        driver.find_element_by_id("id_password").send_keys("basafish")
+        driver.find_element_by_id("id_password").send_keys(password)
         driver.find_element_by_css_selector("button.btn.btn-success").click()
         driver.find_element_by_link_text("Add Plalyst").click()
         driver.find_element_by_id("id_Plalyst_title").clear()
-        driver.find_element_by_id("id_Plalyst_title").send_keys("basaFishPlaylist")
+        driver.find_element_by_id("id_Plalyst_title").send_keys(PlaylistName())
         driver.find_element_by_css_selector("button.btn.btn-success").click()
         driver.find_element_by_link_text("Add New Preferences").click()
         driver.find_element_by_id("id_preferences").clear()
