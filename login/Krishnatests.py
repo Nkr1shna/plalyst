@@ -5,6 +5,8 @@ from login.forms import PlaylistForm, SongForm, UserForm
 from django.test.client import Client
 from .Data import PlaylistName, inputSong, LoginDataGenerate, RegisterDetails
 import re,time,urllib,MySQLdb,unittest
+import csv
+from TestLibrary.Parser import filepref
 
 
 class GeneratePlaylist(unittest.TestCase):
@@ -292,6 +294,11 @@ class PrefChangeRec(unittest.TestCase):
 
     def test_pref_change_rec(self):
         driver = self.driver
+        with open('TestLibrary/' + filepref) as csvfile:
+            preferences = csv.reader(csvfile, delimiter='"', quotechar='|')
+            preferencelist=[]
+            for row in preferences:
+                preferencelist.append(row)
         user = LoginDataGenerate()
         driver.get(self.base_url + "login/")
         driver.find_element_by_id("id_username").clear()
@@ -309,15 +316,15 @@ class PrefChangeRec(unittest.TestCase):
         driver.find_element_by_link_text("View Details").click()
         driver.find_element_by_link_text("Add New Preferences").click()
         driver.find_element_by_id("id_preferences").clear()
-        driver.find_element_by_id("id_preferences").send_keys("alternative")
+        driver.find_element_by_id("id_preferences").send_keys(preferencelist[0])
         driver.find_element_by_css_selector("button.btn.btn-success").click()
         driver.find_element_by_link_text("Add New Preferences").click()
         driver.find_element_by_id("id_preferences").clear()
-        driver.find_element_by_id("id_preferences").send_keys("presley")
+        driver.find_element_by_id("id_preferences").send_keys(preferencelist[1])
         driver.find_element_by_css_selector("button.btn.btn-success").click()
         driver.find_element_by_link_text("Add New Preferences").click()
         driver.find_element_by_id("id_preferences").clear()
-        driver.find_element_by_id("id_preferences").send_keys("bulldozur")
+        driver.find_element_by_id("id_preferences").send_keys(preferencelist[2])
         driver.find_element_by_css_selector("button.btn.btn-success").click()
         driver.find_element_by_link_text("Generate Recommendations").click()
         time.sleep(10)
