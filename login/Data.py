@@ -11,16 +11,19 @@ class RegisterDetails():
         self.email=self.name+"@gmail.com"
         self.password=User.objects.make_random_password(length=10, allowed_chars='123456789')
 
+
 class UserData():
     def __init__(self, username, password):
         self.name=username
         self.password=password
+
 
 def LoginData():
     username="manmitha"
     password="kc433"
     user=UserData(username,password)
     return user
+
 
 def LoginDataGenerate():
     username="kr1shna"
@@ -33,6 +36,7 @@ def PlaylistName():
     namelist=['rock','pop','classical','country','metal']
     randomNum=randint(0, 4)
     return namelist[randomNum]
+
 
 def inputSong():
     conn1 = MySQLdb.connect(host="localhost", user="root", passwd="40OZlike", db="plalyst")

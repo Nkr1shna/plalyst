@@ -3,12 +3,11 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest
 from login.forms import PlaylistForm, SongForm
-from django.test import TestCase
 from django.test.client import Client
-from .Data import LoginData, PlaylistName, inputSong, LoginDataGenerate
-import time,re
-import MySQLdb
+from .Data import PlaylistName, inputSong, LoginDataGenerate
+import re
 import urllib
+
 
 class GeneratePlaylist(unittest.TestCase):
     def setUp(self):
@@ -19,6 +18,7 @@ class GeneratePlaylist(unittest.TestCase):
         self.accept_next_alert = True
 
     def test_generate_playlist(self):
+        print("Generate Playlist")
         driver = self.driver
         user = LoginDataGenerate()
         driver.get(self.base_url + "login/")
@@ -60,9 +60,9 @@ class GeneratePlaylist(unittest.TestCase):
         self.driver.quit()
         self.assertEqual([], self.verificationErrors)
 
-
 if __name__ == "__main__":
     unittest.main()
+
 
 class AddPreferences(unittest.TestCase):
     def setUp(self):
@@ -73,6 +73,7 @@ class AddPreferences(unittest.TestCase):
         self.accept_next_alert = True
 
     def test_add_preferences(self):
+        print("Add Pref")
         driver = self.driver
         user = LoginDataGenerate()
         driver.get(self.base_url + "login/")
@@ -131,6 +132,7 @@ class CreateSong(unittest.TestCase):
         self.accept_next_alert = True
 
     def test_create_song(self):
+        print("Create Song")
         songList=inputSong()
         driver = self.driver
         user = LoginDataGenerate()
@@ -189,6 +191,7 @@ class Youtube(unittest.TestCase):
         self.verificationErrors = []
         self.accept_next_alert = True
     def test_youtube(self):
+        print("Youtube")
         driver = self.driver
         user = LoginDataGenerate()
         driver.get(self.base_url + "login/")
@@ -236,28 +239,33 @@ if __name__ == "__main__":
     unittest.main()
 
 
-class FormTests(TestCase):
-    def test_forms(self):
-        form_data = {'Plalyst_title': PlaylistName()}
-        form = PlaylistForm(data=form_data)
-        self.assertTrue(form.is_valid())
-
+class FormTests(unittest.TestCase):
     def test_form1(self):
+        print("FormTests")
         form_data = {'song_title': inputSong()}
         form = SongForm(data=form_data)
         self.assertTrue(form.is_valid())
 
 
-class URL(unittest.TestCase):
-    def GenerateTest(self):
-        client = Client()
-        response = client.get('http://localhost:8000/generate/')
-        self.assertEqual(response.status_code, 200)
+class FormTests1(unittest.TestCase):
+    def test_forms(self):
+        print("FormTests1")
+        form_data = {'Plalyst_title': PlaylistName()}
+        form = PlaylistForm(data=form_data)
+        self.assertTrue(form.is_valid())
 
+
+class URL(unittest.TestCase):
+    def test_url(self):
+        print("url")
+        client = Client()
+        response = client.get('http://localhost:8000/generate/1/')
+        self.assertEqual(response.status_code, 200)
 
 
 class YoutubeLinkTestCase(unittest.TestCase):
     def test_url_root(self):
+        print("YT link test case")
         url = "http://www.youtube.com/embed/7qFF2v8VsaA"
         query_string = urllib.parse.urlencode({"search_query": "emperors new clothes"})
         html_content = urllib.request.urlopen("http://www.youtube.com/results?" + query_string)

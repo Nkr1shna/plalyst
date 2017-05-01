@@ -2,12 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4770617-24fe-42fe-b272-8ee47f0049c4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/TestLibrary/TestDriverSame.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/plalyst.iml" afterPath="$PROJECT_DIR$/.idea/plalyst.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.coverage" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/TestLibrary/TestDriverPerformance.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestLibrary/Parser.py" afterPath="$PROJECT_DIR$/TestLibrary/Parser.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/geckodriver.log" afterPath="$PROJECT_DIR$/geckodriver.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/login/Commontests.py" afterPath="$PROJECT_DIR$/login/Commontests.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/login/Data.py" afterPath="$PROJECT_DIR$/login/Data.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/login/Krishnatests.py" afterPath="$PROJECT_DIR$/login/Krishnatests.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/login/tests.py" afterPath="$PROJECT_DIR$/login/tests.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plalyst/settings.py" afterPath="$PROJECT_DIR$/plalyst/settings.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -52,31 +55,50 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/playlist/views.py">
+      <file leaf-file-name="Krishnatests.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/login/Krishnatests.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="29">
-              <caret line="66" column="30" lean-forward="false" selection-start-line="66" selection-start-column="30" selection-end-line="66" selection-end-column="30" />
+            <state relative-caret-position="3422">
+              <caret line="126" column="20" lean-forward="false" selection-start-line="126" selection-start-column="20" selection-end-line="126" selection-end-column="20" />
               <folding>
-                <element signature="e#0#35#0" expanded="true" />
-                <marker date="1493483963268" expanded="true" signature="820:862" ph="select id fr... Song" />
-                <marker date="1493483963268" expanded="true" signature="972:1026" ph="select tag f... SongTag" />
-                <marker date="1493483963268" expanded="true" signature="1353:1407" ph="select tag f... SongTag" />
-                <marker date="1493483963268" expanded="true" signature="2250:2304" ph="select song_... login_song" />
-                <marker date="1493483963268" expanded="true" signature="2871:3028" ph="select disti... Song" />
+                <element signature="e#0#30#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Krishnatests.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/login/Krishnatests.py">
+      <file leaf-file-name="manmithaTests.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/login/manmithaTests.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="29">
-              <caret line="10" column="13" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="10" selection-end-column="13" />
+            <state relative-caret-position="551">
+              <caret line="26" column="8" lean-forward="false" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="63" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
-                <marker date="1493505136334" expanded="true" signature="8069:8108" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tests.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/login/tests.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-298">
+              <caret line="255" column="0" lean-forward="false" selection-start-line="255" selection-start-column="0" selection-end-line="255" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Data.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/login/Data.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="899">
+              <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#43#0" expanded="true" />
+                <marker date="1493594980504" expanded="true" signature="1029:1074" ph="select name Song" />
               </folding>
             </state>
           </provider>
@@ -85,8 +107,8 @@
       <file leaf-file-name="TestDriverSame.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TestLibrary/TestDriverSame.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="16" column="30" lean-forward="false" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+            <state relative-caret-position="145">
+              <caret line="8" column="31" lean-forward="false" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
                 <marker date="1493506136130" expanded="true" signature="388:458" ph="insert into login_playlist... " />
@@ -97,52 +119,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Data.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/login/Data.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1218">
-              <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-              <folding>
-                <marker date="1493505136342" expanded="true" signature="1025:1070" ph="select name Song" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tests.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/playlist/tests.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Parser.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TestLibrary/Parser.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="29">
-              <caret line="1" column="23" lean-forward="true" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Commontests.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Commontests.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/login/Commontests.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="105" column="61" lean-forward="true" selection-start-line="105" selection-start-column="61" selection-end-line="105" selection-end-column="61" />
+            <state relative-caret-position="-511">
+              <caret line="252" column="30" lean-forward="true" selection-start-line="252" selection-start-column="30" selection-end-line="252" selection-end-column="30" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
-                <marker date="1493506154355" expanded="true" signature="2805:2924" ph="delete from " />
-                <marker date="1493506154355" expanded="true" signature="2862:2923" ph="select id fr... login_playlist" />
-                <marker date="1493506154355" expanded="true" signature="3029:3087" ph="delete from " />
-                <marker date="1493506154355" expanded="true" signature="4900:5019" ph="delete from " />
-                <marker date="1493506154355" expanded="true" signature="4957:5018" ph="select id fr... login_playlist" />
-                <marker date="1493506154355" expanded="true" signature="5124:5182" ph="delete from " />
+                <marker date="1493612803545" expanded="true" signature="2868:2987" ph="delete from " />
+                <marker date="1493612803545" expanded="true" signature="2925:2986" ph="select id fr... login_playlist" />
+                <marker date="1493612803545" expanded="true" signature="3092:3150" ph="delete from " />
+                <marker date="1493612803545" expanded="true" signature="4963:5082" ph="delete from " />
+                <marker date="1493612803545" expanded="true" signature="5020:5081" ph="select id fr... login_playlist" />
+                <marker date="1493612803545" expanded="true" signature="5187:5245" ph="delete from " />
+                <marker date="1493612803545" expanded="true" signature="10178:10579" ph="delete from " />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="case.py" pinned="false" current-in-tab="false">
+        <entry file="file:///usr/lib/python3.5/unittest/case.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="382" column="14" lean-forward="false" selection-start-line="382" selection-start-column="8" selection-end-line="382" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestDriverPerformance.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TestLibrary/TestDriverPerformance.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="51" lean-forward="true" selection-start-line="0" selection-start-column="51" selection-end-line="0" selection-end-column="51" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -171,6 +182,9 @@
       <find>namespace</find>
       <find>get</find>
       <find>view</find>
+      <find>tim</find>
+      <find>__init</find>
+      <find>time.sleep(2)</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -189,20 +203,22 @@
         <option value="$PROJECT_DIR$/login/views.py" />
         <option value="$PROJECT_DIR$/login/templates/create_song.html" />
         <option value="$PROJECT_DIR$/plalyst/urls.py" />
-        <option value="$PROJECT_DIR$/plalyst/settings.py" />
         <option value="$PROJECT_DIR$/login/urls.py" />
         <option value="$PROJECT_DIR$/login/templates/form_template.html" />
         <option value="$PROJECT_DIR$/login/forms.py" />
         <option value="$PROJECT_DIR$/playlist/models.py" />
-        <option value="$PROJECT_DIR$/login/tests.py" />
         <option value="$PROJECT_DIR$/login/manmithaTests.py" />
         <option value="$PROJECT_DIR$/playlist/views.py" />
-        <option value="$PROJECT_DIR$/login/Data.py" />
-        <option value="$PROJECT_DIR$/login/Krishnatests.py" />
         <option value="$PROJECT_DIR$/TestLibrary/Parser.py" />
         <option value="$PROJECT_DIR$/TestLibrary/TestDriver.py" />
         <option value="$PROJECT_DIR$/TestLibrary/TestDriverSame.py" />
+        <option value="$PROJECT_DIR$/login/tests.py" />
+        <option value="$PROJECT_DIR$/login/Data.py" />
+        <option value="$PROJECT_DIR$/plalyst/settings.py" />
+        <option value="$PROJECT_DIR$/login/Krishnatests.py" />
+        <option value="$PROJECT_DIR$/TestLibrary/Parser1.py" />
         <option value="$PROJECT_DIR$/login/Commontests.py" />
+        <option value="$PROJECT_DIR$/TestLibrary/TestDriverPerformance.py" />
       </list>
     </option>
   </component>
@@ -232,7 +248,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -280,6 +295,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="plalyst" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plalyst" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plalyst" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="login" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -300,6 +329,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -681,7 +711,14 @@
       <option name="project" value="LOCAL" />
       <updated>1493505123256</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Data driven Testing update 3">
+      <created>1493506188526</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1493506188526</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TodoView">
@@ -697,25 +734,25 @@
     <frame x="0" y="27" width="1920" height="1026" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1965812" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32884398" sideWeight="0.4977221" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="manage.py@plalyst" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32176656" sideWeight="0.4931663" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32615384" sideWeight="0.5022779" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18688525" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2379349" sideWeight="0.4977221" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1919192" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23659305" sideWeight="0.4977221" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26262626" sideWeight="0.4977221" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2962963" sideWeight="0.4977221" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="manage.py@plalyst" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32211" sideWeight="0.4931663" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32772166" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -735,7 +772,8 @@
     <MESSAGE value="TestLibrary written" />
     <MESSAGE value="Data driven Testing updated" />
     <MESSAGE value="Data driven Testing update 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Data driven Testing update 2" />
+    <MESSAGE value="Data driven Testing update 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Data driven Testing update 3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -744,12 +782,289 @@
           <url>file://$PROJECT_DIR$/plalyst/settings.py</url>
           <line>42</line>
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/login/Commontests.py</url>
+          <line>225</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/TestLibrary/TestDriver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="3" column="24" lean-forward="false" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+            <marker date="1493505136314" expanded="true" signature="405:475" ph="insert into login_playlist... " />
+            <marker date="1493505136314" expanded="true" signature="513:573" ph="select id fr... login_playlist" />
+            <marker date="1493505136314" expanded="true" signature="782:865" ph="insert into login_song... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/Krishnatests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3654">
+          <caret line="126" column="20" lean-forward="false" selection-start-line="126" selection-start-column="20" selection-end-line="126" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/manmithaTests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="26" column="8" lean-forward="false" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="63" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6641">
+          <caret line="255" column="0" lean-forward="false" selection-start-line="255" selection-start-column="0" selection-end-line="255" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/Data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="899">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+            <marker date="1493594980504" expanded="true" signature="1029:1074" ph="select name Song" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestLibrary/TestDriverSame.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="8" column="31" lean-forward="true" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+            <marker date="1493506136130" expanded="true" signature="388:458" ph="insert into login_playlist... " />
+            <marker date="1493506136130" expanded="true" signature="496:556" ph="select id fr... login_playlist" />
+            <marker date="1493506136130" expanded="true" signature="766:849" ph="insert into login_song... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestLibrary/Parser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29">
+          <caret line="1" column="23" lean-forward="false" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/Commontests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9599">
+          <caret line="331" column="0" lean-forward="true" selection-start-line="331" selection-start-column="0" selection-end-line="331" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+            <marker date="1493612803545" expanded="true" signature="2868:2987" ph="delete from " />
+            <marker date="1493612803545" expanded="true" signature="2925:2986" ph="select id fr... login_playlist" />
+            <marker date="1493612803545" expanded="true" signature="3092:3150" ph="delete from " />
+            <marker date="1493612803545" expanded="true" signature="4963:5082" ph="delete from " />
+            <marker date="1493612803545" expanded="true" signature="5020:5081" ph="select id fr... login_playlist" />
+            <marker date="1493612803545" expanded="true" signature="5187:5245" ph="delete from " />
+            <marker date="1493612803545" expanded="true" signature="10178:10579" ph="delete from " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestLibrary/TestDriverPerformance.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestLibrary/TestDriver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="3" column="24" lean-forward="false" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+            <marker date="1493505136314" expanded="true" signature="405:475" ph="insert into login_playlist... " />
+            <marker date="1493505136314" expanded="true" signature="513:573" ph="select id fr... login_playlist" />
+            <marker date="1493505136314" expanded="true" signature="782:865" ph="insert into login_song... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/playlist/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1914">
+          <caret line="66" column="30" lean-forward="false" selection-start-line="66" selection-start-column="30" selection-end-line="66" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/Krishnatests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="10" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestLibrary/TestDriverSame.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="16" column="30" lean-forward="false" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+            <marker date="1493506136130" expanded="true" signature="388:458" ph="insert into login_playlist... " />
+            <marker date="1493506136130" expanded="true" signature="496:556" ph="select id fr... login_playlist" />
+            <marker date="1493506136130" expanded="true" signature="766:849" ph="insert into login_song... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/Data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1218">
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+            <marker date="1493594980504" expanded="true" signature="1029:1074" ph="select name Song" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/playlist/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestLibrary/Parser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29">
+          <caret line="1" column="23" lean-forward="false" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/Commontests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+            <marker date="1493612803545" expanded="true" signature="2868:2987" ph="delete from " />
+            <marker date="1493612803545" expanded="true" signature="2925:2986" ph="select id fr... login_playlist" />
+            <marker date="1493612803545" expanded="true" signature="3092:3150" ph="delete from " />
+            <marker date="1493612803545" expanded="true" signature="4963:5082" ph="delete from " />
+            <marker date="1493612803545" expanded="true" signature="5020:5081" ph="select id fr... login_playlist" />
+            <marker date="1493612803545" expanded="true" signature="5187:5245" ph="delete from " />
+            <marker date="1493612803545" expanded="true" signature="10178:10579" ph="delete from " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestLibrary/TestDriver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="3" column="24" lean-forward="false" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+            <marker date="1493505136314" expanded="true" signature="405:475" ph="insert into login_playlist... " />
+            <marker date="1493505136314" expanded="true" signature="513:573" ph="select id fr... login_playlist" />
+            <marker date="1493505136314" expanded="true" signature="782:865" ph="insert into login_song... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/playlist/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1914">
+          <caret line="66" column="30" lean-forward="false" selection-start-line="66" selection-start-column="30" selection-end-line="66" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/Krishnatests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="10" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestLibrary/TestDriverSame.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="16" column="30" lean-forward="false" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+            <marker date="1493506136130" expanded="true" signature="388:458" ph="insert into login_playlist... " />
+            <marker date="1493506136130" expanded="true" signature="496:556" ph="select id fr... login_playlist" />
+            <marker date="1493506136130" expanded="true" signature="766:849" ph="insert into login_song... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/Data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1218">
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+            <marker date="1493594980504" expanded="true" signature="1029:1074" ph="select name Song" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/playlist/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestLibrary/Parser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29">
+          <caret line="1" column="23" lean-forward="false" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/Commontests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3335">
+          <caret line="118" column="0" lean-forward="false" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+            <marker date="1493612803545" expanded="true" signature="2868:2987" ph="delete from " />
+            <marker date="1493612803545" expanded="true" signature="2925:2986" ph="select id fr... login_playlist" />
+            <marker date="1493612803545" expanded="true" signature="3092:3150" ph="delete from " />
+            <marker date="1493612803545" expanded="true" signature="4963:5082" ph="delete from " />
+            <marker date="1493612803545" expanded="true" signature="5020:5081" ph="select id fr... login_playlist" />
+            <marker date="1493612803545" expanded="true" signature="5187:5245" ph="delete from " />
+            <marker date="1493612803545" expanded="true" signature="10178:10579" ph="delete from " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/TestLibrary/TestDriver.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="580">
@@ -767,14 +1082,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1914">
           <caret line="66" column="30" lean-forward="true" selection-start-line="66" selection-start-column="30" selection-end-line="66" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-            <marker date="1493483963268" expanded="true" signature="820:862" ph="select id fr... Song" />
-            <marker date="1493483963268" expanded="true" signature="972:1026" ph="select tag f... SongTag" />
-            <marker date="1493483963268" expanded="true" signature="1353:1407" ph="select tag f... SongTag" />
-            <marker date="1493483963268" expanded="true" signature="2250:2304" ph="select song_... login_song" />
-            <marker date="1493483963268" expanded="true" signature="2871:3028" ph="select disti... Song" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -784,7 +1091,6 @@
           <caret line="10" column="13" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="10" selection-end-column="13" />
           <folding>
             <element signature="e#0#30#0" expanded="true" />
-            <marker date="1493505136334" expanded="true" signature="8069:8108" ph="..." />
           </folding>
         </state>
       </provider>
@@ -795,12 +1101,13 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#30#0" expanded="true" />
-            <marker date="1493506154355" expanded="true" signature="2805:2924" ph="delete from " />
-            <marker date="1493506154355" expanded="true" signature="2862:2923" ph="select id fr... login_playlist" />
-            <marker date="1493506154355" expanded="true" signature="3029:3087" ph="delete from " />
-            <marker date="1493506154355" expanded="true" signature="4900:5019" ph="delete from " />
-            <marker date="1493506154355" expanded="true" signature="4957:5018" ph="select id fr... login_playlist" />
-            <marker date="1493506154355" expanded="true" signature="5124:5182" ph="delete from " />
+            <marker date="1493612803545" expanded="true" signature="2868:2987" ph="delete from " />
+            <marker date="1493612803545" expanded="true" signature="2925:2986" ph="select id fr... login_playlist" />
+            <marker date="1493612803545" expanded="true" signature="3092:3150" ph="delete from " />
+            <marker date="1493612803545" expanded="true" signature="4963:5082" ph="delete from " />
+            <marker date="1493612803545" expanded="true" signature="5020:5081" ph="select id fr... login_playlist" />
+            <marker date="1493612803545" expanded="true" signature="5187:5245" ph="delete from " />
+            <marker date="1493612803545" expanded="true" signature="10178:10579" ph="delete from " />
           </folding>
         </state>
       </provider>
@@ -810,7 +1117,8 @@
         <state relative-caret-position="1218">
           <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding>
-            <marker date="1493505136342" expanded="true" signature="1025:1070" ph="select name Song" />
+            <element signature="e#0#43#0" expanded="true" />
+            <marker date="1493594980504" expanded="true" signature="1029:1074" ph="select name Song" />
           </folding>
         </state>
       </provider>
@@ -819,7 +1127,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -859,46 +1166,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/login/Data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1218">
-          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding>
-            <marker date="1493505136342" expanded="true" signature="1025:1070" ph="select name Song" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/playlist/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
+        <state relative-caret-position="1769">
           <caret line="66" column="30" lean-forward="false" selection-start-line="66" selection-start-column="30" selection-end-line="66" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-            <marker date="1493483963268" expanded="true" signature="820:862" ph="select id fr... Song" />
-            <marker date="1493483963268" expanded="true" signature="972:1026" ph="select tag f... SongTag" />
-            <marker date="1493483963268" expanded="true" signature="1353:1407" ph="select tag f... SongTag" />
-            <marker date="1493483963268" expanded="true" signature="2250:2304" ph="select song_... login_song" />
-            <marker date="1493483963268" expanded="true" signature="2871:3028" ph="select disti... Song" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login/Krishnatests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="10" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-            <marker date="1493505136334" expanded="true" signature="8069:8108" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TestLibrary/Parser.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="29">
-          <caret line="1" column="23" lean-forward="true" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
+          <caret line="1" column="23" lean-forward="false" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -907,7 +1185,58 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestLibrary/TestDriverSame.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="8" column="31" lean-forward="false" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+            <marker date="1493506136130" expanded="true" signature="388:458" ph="insert into login_playlist... " />
+            <marker date="1493506136130" expanded="true" signature="496:556" ph="select id fr... login_playlist" />
+            <marker date="1493506136130" expanded="true" signature="766:849" ph="insert into login_song... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plalyst/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1160">
+          <caret line="44" column="26" lean-forward="false" selection-start-line="44" selection-start-column="26" selection-end-line="44" selection-end-column="26" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/Data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="899">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+            <marker date="1493594980504" expanded="true" signature="1029:1074" ph="select name Song" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/manmithaTests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="26" column="8" lean-forward="false" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="63" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/Krishnatests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3422">
+          <caret line="126" column="20" lean-forward="false" selection-start-line="126" selection-start-column="20" selection-end-line="126" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -924,31 +1253,69 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TestLibrary/TestDriverSame.py">
+    <entry file="file://$PROJECT_DIR$/TestLibrary/Parser1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="16" column="30" lean-forward="false" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-            <marker date="1493506136130" expanded="true" signature="388:458" ph="insert into login_playlist... " />
-            <marker date="1493506136130" expanded="true" signature="496:556" ph="select id fr... login_playlist" />
-            <marker date="1493506136130" expanded="true" signature="766:849" ph="insert into login_song... " />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="51" lean-forward="true" selection-start-line="0" selection-start-column="51" selection-end-line="0" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2016.3/system/python_stubs/-1247971764/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="5193" column="8" lean-forward="false" selection-start-line="5193" selection-start-column="8" selection-end-line="5193" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3.5/unittest/case.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="382" column="14" lean-forward="false" selection-start-line="382" selection-start-column="8" selection-end-line="382" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/login/Commontests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="105" column="61" lean-forward="true" selection-start-line="105" selection-start-column="61" selection-end-line="105" selection-end-column="61" />
+        <state relative-caret-position="-511">
+          <caret line="252" column="30" lean-forward="true" selection-start-line="252" selection-start-column="30" selection-end-line="252" selection-end-column="30" />
           <folding>
             <element signature="e#0#30#0" expanded="true" />
-            <marker date="1493506154355" expanded="true" signature="2805:2924" ph="delete from " />
-            <marker date="1493506154355" expanded="true" signature="2862:2923" ph="select id fr... login_playlist" />
-            <marker date="1493506154355" expanded="true" signature="3029:3087" ph="delete from " />
-            <marker date="1493506154355" expanded="true" signature="4900:5019" ph="delete from " />
-            <marker date="1493506154355" expanded="true" signature="4957:5018" ph="select id fr... login_playlist" />
-            <marker date="1493506154355" expanded="true" signature="5124:5182" ph="delete from " />
+            <marker date="1493612803545" expanded="true" signature="2868:2987" ph="delete from " />
+            <marker date="1493612803545" expanded="true" signature="2925:2986" ph="select id fr... login_playlist" />
+            <marker date="1493612803545" expanded="true" signature="3092:3150" ph="delete from " />
+            <marker date="1493612803545" expanded="true" signature="4963:5082" ph="delete from " />
+            <marker date="1493612803545" expanded="true" signature="5020:5081" ph="select id fr... login_playlist" />
+            <marker date="1493612803545" expanded="true" signature="5187:5245" ph="delete from " />
+            <marker date="1493612803545" expanded="true" signature="10178:10579" ph="delete from " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.coverage">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="75" lean-forward="true" selection-start-line="0" selection-start-column="75" selection-end-line="0" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestLibrary/TestDriverPerformance.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="51" lean-forward="true" selection-start-line="0" selection-start-column="51" selection-end-line="0" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-298">
+          <caret line="255" column="0" lean-forward="false" selection-start-line="255" selection-start-column="0" selection-end-line="255" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>

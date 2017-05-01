@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'playlist.apps.PlaylistConfig',
 ]
+# Use nose to run all test
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
