@@ -337,3 +337,93 @@ class DeletePlaylist(unittest.TestCase):
     def tearDown(self):
         self.driver.quit()
         self.assertEqual([], self.verificationErrors)
+
+class ValidLoginAddPLAndPrefToExisting(unittest.TestCase):
+    def setUp(self):
+        self.driver = webdriver.Chrome()
+        self.driver.implicitly_wait(8)
+        self.base_url = "http://localhost:8000/"
+        self.verificationErrors = []
+        self.accept_next_alert = True
+
+    def test_login_Add_PL_And_Pref(self):
+        driver = self.driver
+        driver.get(self.base_url + "login/login_user/")
+        driver.find_element_by_id("id_username").clear()
+        driver.find_element_by_id("id_username").send_keys("1")
+        driver.find_element_by_id("id_password").clear()
+        driver.find_element_by_id("id_password").send_keys("luke")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        driver.find_element_by_link_text("View Details").click()
+        driver.find_element_by_link_text("Add New Preferences").click()
+        driver.find_element_by_id("id_preferences").clear()
+        driver.find_element_by_id("id_preferences").send_keys("Rap")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        driver.find_element_by_link_text("Add New Preferences").click()
+        driver.find_element_by_id("id_preferences").clear()
+        driver.find_element_by_id("id_preferences").send_keys("Rock")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        driver.find_element_by_link_text("Add New Preferences").click()
+        driver.find_element_by_id("id_preferences").clear()
+        driver.find_element_by_id("id_preferences").send_keys("Hip Hop")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        driver.find_element_by_link_text("Add New Preferences").click()
+        driver.find_element_by_id("id_preferences").clear()
+        driver.find_element_by_id("id_preferences").send_keys("Gangster Rap")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        driver.find_element_by_link_text("Add New Preferences").click()
+        driver.find_element_by_id("id_preferences").clear()
+        driver.find_element_by_id("id_preferences").send_keys("Conscious Rap")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        driver.find_element_by_link_text("Add New Preferences").click()
+
+    def tearDown(self):
+        self.driver.quit()
+        self.assertEqual([], self.verificationErrors)
+
+class ValidLoginAddPLAndSongsToExisting(unittest.TestCase):
+    def setUp(self):
+        self.driver = webdriver.Chrome()
+        self.driver.implicitly_wait(8)
+        self.base_url = "http://localhost:8000/"
+        self.verificationErrors = []
+        self.accept_next_alert = True
+
+    def test_login_Add_PL_And_Pref(self):
+        driver = self.driver
+        driver.get(self.base_url + "login/login_user/")
+        driver.find_element_by_id("id_username").clear()
+        driver.find_element_by_id("id_username").send_keys("1")
+        driver.find_element_by_id("id_password").clear()
+        driver.find_element_by_id("id_password").send_keys("luke")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        driver.find_element_by_link_text("View Details").click()
+        driver.find_element_by_link_text("Add New Song").click()
+        driver.find_element_by_id("id_song_title").clear()
+        driver.find_element_by_id("id_song_title").send_keys("What Is Love")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        driver.find_element_by_id("id_song_title").clear()
+        driver.find_element_by_id("id_song_title").send_keys("Love")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        driver.find_element_by_id("id_song_title").clear()
+        driver.find_element_by_id("id_song_title").send_keys("Baby Dont Hurt Me")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        driver.find_element_by_id("id_song_title").clear()
+        driver.find_element_by_id("id_song_title").send_keys("Dont Hurt Me")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        driver.find_element_by_id("id_song_title").clear()
+        driver.find_element_by_id("id_song_title").send_keys("No More")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        driver.find_element_by_id("id_song_title").clear()
+        driver.find_element_by_id("id_song_title").send_keys("ooOHOH")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        driver.find_element_by_id("id_song_title").clear()
+        driver.find_element_by_id("id_song_title").send_keys("WOAHWOAH")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+        driver.find_element_by_id("id_song_title").clear()
+        driver.find_element_by_id("id_song_title").send_keys("ooWOAHWOAH")
+        driver.find_element_by_css_selector("button.btn.btn-success").click()
+
+    def tearDown(self):
+        self.driver.quit()
+        self.assertEqual([], self.verificationErrors)
